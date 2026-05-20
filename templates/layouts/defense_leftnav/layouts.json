@@ -1,0 +1,65 @@
+{
+  "schema_version": "easyslides.defense_leftnav.layouts.v1",
+  "template_id": "defense_leftnav",
+  "style_system": "compact_wine_red_left_nav_thesis_defense",
+  "replication_mode": "classic",
+  "distillation_model": "compact_shells_plus_body_variants",
+  "canvas": {"width": 1280, "height": 720, "format": "ppt169"},
+  "shells": [
+    {
+      "layout_id": "D01-S01",
+      "page_id": "cover",
+      "svg_path": "templates/layouts/defense_leftnav/01_cover.svg",
+      "role_fit": ["cover"],
+      "slots": ["TITLE", "SUBTITLE", "PRESENTER", "ADVISOR", "DATE"]
+    },
+    {
+      "layout_id": "D01-S02",
+      "page_id": "toc",
+      "svg_path": "templates/layouts/defense_leftnav/02_toc.svg",
+      "role_fit": ["agenda"],
+      "slots": ["SECTION_1", "SECTION_2", "SECTION_3", "SECTION_4", "SECTION_5"]
+    },
+    {
+      "layout_id": "D01-S03",
+      "page_id": "chapter",
+      "svg_path": "templates/layouts/defense_leftnav/02_chapter.svg",
+      "role_fit": ["section_open"],
+      "slots": ["SECTION_NUMBER", "PART_LABEL", "SECTION_TITLE", "SECTION_SUBTITLE"]
+    },
+    {
+      "layout_id": "D01-S04",
+      "page_id": "content",
+      "svg_path": "templates/layouts/defense_leftnav/03_content.svg",
+      "role_fit": ["background_context", "objective", "method", "evidence", "discussion", "summary"],
+      "slots": ["ACTIVE_SECTION", "ACTIVE_SECTION_LABEL", "PAGE_TITLE", "KEY_MESSAGE", "CONTENT_AREA", "CONTENT_BODY", "PAGE_NUM"],
+      "navigation_states": "navigation_states.json",
+      "body_variants": "body_variants.json",
+      "component_styles": "component_styles.json"
+    },
+    {
+      "layout_id": "D01-S05",
+      "page_id": "ending",
+      "svg_path": "templates/layouts/defense_leftnav/04_ending.svg",
+      "role_fit": ["closing"],
+      "slots": ["CLOSING_TITLE", "PRESENTER", "ADVISOR", "CONTACT"]
+    }
+  ],
+  "navigation_variant_model": {
+    "mode": "single_svg_five_active_section_variants",
+    "source": "navigation_states.json",
+    "base_shell": "templates/layouts/defense_leftnav/03_content.svg",
+    "selection_key": "ACTIVE_SECTION",
+    "shape_policy": "preserve_navigation_shapes_switch_active_state"
+  },
+  "navigation_variants": ["D01-NAV-01", "D01-NAV-02", "D01-NAV-03", "D01-NAV-04", "D01-NAV-05"],
+  "default_sections": ["研究背景", "目的及意义", "材料与方法", "结果与分析", "结论与讨论"],
+  "global_rules": [
+    "Keep the five shell SVG files as the stable template surface.",
+    "Do not add routine content variants as additional SVG files; add body variants or component styles instead.",
+    "Update the active left-navigation state for every content slide.",
+    "Keep generated body content inside CONTENT_AREA unless intentionally using a full-slide chapter or cover shell.",
+    "Treat CONTENT_AREA as an invisible machine-readable boundary, not a rendered frame.",
+    "Keep PAGE_TITLE short and use KEY_MESSAGE for the fuller slide claim; do not duplicate the same wording."
+  ]
+}

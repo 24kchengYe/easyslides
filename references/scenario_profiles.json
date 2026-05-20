@@ -1,0 +1,452 @@
+{
+  "schema_version": "easyslides.scenario_profiles.v1",
+  "rule_levels": {
+    "hard_rules": "Always enforce. These protect truthfulness, traceability, text fit, and deliverability.",
+    "required_rules": "Enforce for this scenario unless the user explicitly changes the scenario.",
+    "recommended_rules": "Default guidance. Apply when it improves clarity, but let templates and scenario needs override it.",
+    "relaxable_rules": "Helpful defaults that may be softened when a template, venue, or activity format needs a different shape."
+  },
+  "hard_rules": [
+    {
+      "id": "faithful_to_source",
+      "rule": "Do not invent paper conclusions, data, methods, citations, or claims.",
+      "rationale": "Academic slides must preserve the source argument."
+    },
+    {
+      "id": "source_traceability",
+      "rule": "Track where each borrowed figure, table, data point, and key claim came from.",
+      "rationale": "Slides need recoverable evidence, not just polished prose."
+    },
+    {
+      "id": "citation_retention",
+      "rule": "Keep citations or source notes visible when borrowed material appears on a slide.",
+      "rationale": "Academic integrity rules override template aesthetics."
+    },
+    {
+      "id": "text_fit",
+      "rule": "No generated text may overflow or become unreadable inside the selected layout.",
+      "rationale": "A beautiful template fails if content does not fit."
+    },
+    {
+      "id": "template_geometry_integrity",
+      "rule": "For mirror and slot-guided templates, preserve fixed geometry unless the template contract allows editing.",
+      "rationale": "Templates are content containers with their own spatial contract."
+    },
+    {
+      "id": "pptx_deliverability",
+      "rule": "The final PPTX must open and remain editable according to the chosen EasySlides backend.",
+      "rationale": "The user needs a usable deliverable, not only intermediate assets."
+    }
+  ],
+  "template_override_policy": {
+    "principle": "Templates control visual containers; scenario profiles control content organization; hard rules preserve trust and delivery.",
+    "template_may_override": [
+      "palette",
+      "title_treatment",
+      "divider_style",
+      "icon_usage",
+      "background_treatment",
+      "page_chrome",
+      "layout_density"
+    ],
+    "template_must_not_override": [
+      "faithful_to_source",
+      "source_traceability",
+      "citation_retention",
+      "text_fit",
+      "template_geometry_integrity",
+      "pptx_deliverability"
+    ]
+  },
+  "profiles": {
+    "single_paper_report": {
+      "display_name": "单篇文献汇报",
+      "structure_strength": "strong",
+      "typical_slide_count": {"min": 6, "max": 10},
+      "input_priority": {
+        "outline_or_script": "user_structure_first",
+        "no_outline_or_script": "offer_concise_or_deep_literature_report",
+        "rule": "When the user supplies a page outline, speaking script, learning notes, or slide-by-slide plan, preserve that structure as the primary story contract and use the paper only to verify and source evidence."
+      },
+      "flow_options": [
+        {
+          "id": "paper_ppt_concise",
+          "display_name": "短科研论文汇报",
+          "source_inspiration": "xiao634zhang/paper-ppt-skill",
+          "slide_count": {"min": 6, "max": 10},
+          "use_when": [
+            "outline_or_script_provided",
+            "concise_report_requested",
+            "lab_meeting_or_course_presentation",
+            "user_wants_figure_first_short_deck"
+          ],
+          "planning_artifacts": [
+            "source_map",
+            "deck_plan.json",
+            "figure_crops",
+            "template_style_notes"
+          ],
+          "must_respect": [
+            "user_outline_or_script",
+            "reference_template_style",
+            "paper_figure_integrity"
+          ]
+        },
+        {
+          "id": "literature_report_deep_dive",
+          "display_name": "长文献汇报深读流程",
+          "source_inspiration": "fangyuanopus/literature-report-ppt-builder",
+          "slide_count": {"min": 20, "max": 60},
+          "use_when": [
+            "no_outline_or_script",
+            "full_literature_report_requested",
+            "main_paper_plus_si_available",
+            "maximum_quality_or_complete_walkthrough"
+          ],
+          "planning_artifacts": [
+            "paper_logic_tree",
+            "terminology_table",
+            "main_si_crosswalk",
+            "figure_source_manifest",
+            "adaptive_navigation_plan",
+            "deck_order_map",
+            "page_briefs",
+            "speaker_notes"
+          ],
+          "guardrail": "Only select this flow when the user has not supplied an outline or script, unless the user explicitly asks to replace their structure."
+        }
+      ],
+      "default_story_spine": [
+        "paper_identity",
+        "background_and_gap",
+        "research_question",
+        "method_or_model",
+        "key_results",
+        "contributions",
+        "limitations_and_outlook"
+      ],
+      "required_rules": [
+        "paper_title_verified",
+        "figure_source_map",
+        "original_figures_or_verified_crops",
+        "source_traceability",
+        "faithful_to_source",
+        "citation_retention"
+      ],
+      "recommended_rules": [
+        "action_titles",
+        "figure_first",
+        "one_exhibit_per_results_slide",
+        "annotate_so_what",
+        "ghost_deck_test",
+        "conclusion_last"
+      ],
+      "relaxable_rules": [
+        "white_background",
+        "three_color_limit",
+        "no_decorative_icons"
+      ],
+      "template_policy": {
+        "template_controls_visuals": true,
+        "template_may_override": [
+          "palette",
+          "title_treatment",
+          "divider_style",
+          "icon_usage",
+          "background_treatment",
+          "layout_density"
+        ],
+        "template_must_not_override": [
+          "source_traceability",
+          "citation_retention",
+          "faithful_to_source",
+          "text_fit"
+        ]
+      }
+    },
+    "multi_paper_review": {
+      "display_name": "多篇文献汇报",
+      "structure_strength": "strong",
+      "typical_slide_count": {"min": 8, "max": 16},
+      "default_story_spine": [
+        "review_question",
+        "selection_scope",
+        "taxonomy_or_framework",
+        "clusters_of_methods",
+        "consensus_and_disagreement",
+        "research_gaps",
+        "synthesis_takeaways"
+      ],
+      "required_rules": [
+        "paper_set_scope_declared",
+        "comparison_dimensions_declared",
+        "source_traceability",
+        "citation_retention",
+        "faithful_to_source"
+      ],
+      "recommended_rules": [
+        "taxonomy_first",
+        "matrix_or_map_view",
+        "action_titles",
+        "ghost_deck_test",
+        "evidence_density_balanced"
+      ],
+      "relaxable_rules": [
+        "one_exhibit_per_results_slide",
+        "conclusion_last",
+        "white_background"
+      ],
+      "template_policy": {
+        "template_controls_visuals": true,
+        "template_may_override": [
+          "palette",
+          "title_treatment",
+          "layout_density",
+          "page_chrome"
+        ],
+        "template_must_not_override": [
+          "source_traceability",
+          "citation_retention",
+          "text_fit"
+        ]
+      }
+    },
+    "thesis_defense": {
+      "display_name": "毕业答辩",
+      "structure_strength": "very_strong",
+      "typical_slide_count": {"min": 20, "max": 35},
+      "default_story_spine": [
+        "research_background",
+        "research_question",
+        "technical_route",
+        "materials_and_methods",
+        "results_chain",
+        "innovation_points",
+        "limitations",
+        "acknowledgements"
+      ],
+      "required_rules": [
+        "research_question_explicit",
+        "technical_route_visible",
+        "results_support_innovation_claims",
+        "committee_concerns_addressed",
+        "source_traceability",
+        "text_fit"
+      ],
+      "recommended_rules": [
+        "breadcrumb_or_section_navigation",
+        "action_titles",
+        "ghost_deck_test",
+        "appendix_for_qa",
+        "conclusion_last"
+      ],
+      "relaxable_rules": [
+        "one_exhibit_per_results_slide",
+        "no_decorative_icons",
+        "three_color_limit"
+      ],
+      "template_policy": {
+        "template_controls_visuals": true,
+        "template_may_override": [
+          "palette",
+          "title_treatment",
+          "divider_style",
+          "page_chrome",
+          "layout_density"
+        ],
+        "template_must_not_override": [
+          "source_traceability",
+          "citation_retention",
+          "text_fit",
+          "template_geometry_integrity"
+        ]
+      }
+    },
+    "proposal_or_fund": {
+      "display_name": "开题/基金申请",
+      "structure_strength": "very_strong",
+      "typical_slide_count": {"min": 12, "max": 25},
+      "default_story_spine": [
+        "problem_importance",
+        "knowledge_gap",
+        "scientific_questions",
+        "hypotheses",
+        "technical_route",
+        "feasibility_basis",
+        "expected_contribution"
+      ],
+      "required_rules": [
+        "gap_claim_supported",
+        "scientific_question_explicit",
+        "feasibility_evidence_present",
+        "risk_and_plan_b_present",
+        "source_traceability"
+      ],
+      "recommended_rules": [
+        "answer_first_for_review_panels",
+        "action_titles",
+        "route_diagram",
+        "milestone_slide",
+        "ghost_deck_test"
+      ],
+      "relaxable_rules": [
+        "conclusion_last",
+        "one_exhibit_per_results_slide",
+        "white_background"
+      ],
+      "template_policy": {
+        "template_controls_visuals": true,
+        "template_may_override": [
+          "palette",
+          "title_treatment",
+          "divider_style",
+          "icon_usage",
+          "layout_density"
+        ],
+        "template_must_not_override": [
+          "source_traceability",
+          "faithful_to_source",
+          "text_fit"
+        ]
+      }
+    },
+    "lab_progress": {
+      "display_name": "组会/科研进展",
+      "structure_strength": "medium",
+      "typical_slide_count": {"min": 5, "max": 15},
+      "default_story_spine": [
+        "current_question",
+        "recent_attempts",
+        "observations_or_results",
+        "blockers",
+        "next_steps"
+      ],
+      "required_rules": [
+        "current_question_explicit",
+        "next_steps_present",
+        "uncertainty_labeled",
+        "source_traceability"
+      ],
+      "recommended_rules": [
+        "progress_delta_view",
+        "action_titles",
+        "one_key_result_per_slide",
+        "decision_needed_markers"
+      ],
+      "relaxable_rules": [
+        "ghost_deck_test",
+        "conclusion_last",
+        "formal_references_slide",
+        "one_exhibit_per_results_slide"
+      ],
+      "template_policy": {
+        "template_controls_visuals": true,
+        "template_may_override": [
+          "palette",
+          "title_treatment",
+          "layout_density",
+          "page_chrome"
+        ],
+        "template_must_not_override": [
+          "source_traceability",
+          "text_fit"
+        ]
+      }
+    },
+    "workshop_training": {
+      "display_name": "工作坊/培训",
+      "structure_strength": "weak",
+      "typical_slide_count": {"min": 10, "max": 45},
+      "default_story_spine": [
+        "learning_objectives",
+        "module_sequence",
+        "demo_or_explanation",
+        "hands_on_exercise",
+        "checkpoint",
+        "wrap_up"
+      ],
+      "required_rules": [
+        "learning_objectives",
+        "interaction_checkpoints",
+        "exercise_instructions_clear",
+        "time_boxes_present",
+        "text_fit"
+      ],
+      "recommended_rules": [
+        "action_titles",
+        "module_breadcrumbs",
+        "worked_examples",
+        "summary_prompts",
+        "participant_output_visible"
+      ],
+      "relaxable_rules": [
+        "ghost_deck_test",
+        "one_exhibit_per_results_slide",
+        "conclusion_last",
+        "formal_references_slide",
+        "strict_scqa"
+      ],
+      "template_policy": {
+        "template_controls_visuals": true,
+        "template_may_override": [
+          "palette",
+          "title_treatment",
+          "icon_usage",
+          "background_treatment",
+          "layout_density"
+        ],
+        "template_must_not_override": [
+          "text_fit",
+          "pptx_deliverability"
+        ]
+      }
+    },
+    "conference_talk": {
+      "display_name": "学术会议报告",
+      "structure_strength": "strong",
+      "typical_slide_count": {"min": 8, "max": 18},
+      "default_story_spine": [
+        "motivation",
+        "research_question",
+        "approach",
+        "key_result_1",
+        "key_result_2",
+        "implication",
+        "conclusion"
+      ],
+      "required_rules": [
+        "central_claim_selected",
+        "time_budget_respected",
+        "research_question_explicit",
+        "source_traceability",
+        "citation_retention"
+      ],
+      "recommended_rules": [
+        "action_titles",
+        "ghost_deck_test",
+        "one_exhibit_per_results_slide",
+        "annotate_so_what",
+        "conclusion_last"
+      ],
+      "relaxable_rules": [
+        "formal_references_slide",
+        "white_background",
+        "three_color_limit"
+      ],
+      "template_policy": {
+        "template_controls_visuals": true,
+        "template_may_override": [
+          "palette",
+          "title_treatment",
+          "divider_style",
+          "background_treatment"
+        ],
+        "template_must_not_override": [
+          "source_traceability",
+          "citation_retention",
+          "text_fit"
+        ]
+      }
+    }
+  }
+}

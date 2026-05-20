@@ -1,0 +1,473 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EasySlides Icon Browser</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f7f4ed;
+      --ink: #171717;
+      --muted: #69645b;
+      --line: #d8d1c4;
+      --tile: #fffdf8;
+      --tile-strong: #111111;
+      --accent: #8b0012;
+      --accent-soft: #f0d8dc;
+      --focus: #005bd3;
+      --shadow: 0 10px 28px rgba(20, 16, 10, .08);
+      font-family: "Aptos", "Segoe UI", "Microsoft YaHei", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      background:
+        linear-gradient(90deg, rgba(23,23,23,.04) 1px, transparent 1px),
+        linear-gradient(rgba(23,23,23,.04) 1px, transparent 1px),
+        var(--paper);
+      background-size: 32px 32px;
+    }
+
+    button, input {
+      font: inherit;
+    }
+
+    .shell {
+      display: grid;
+      grid-template-rows: auto 1fr;
+      min-height: 100vh;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      border-bottom: 1px solid var(--line);
+      background: rgba(247, 244, 237, .94);
+      backdrop-filter: blur(12px);
+    }
+
+    .bar {
+      display: grid;
+      grid-template-columns: minmax(220px, 1fr) minmax(280px, 520px) auto;
+      gap: 16px;
+      align-items: end;
+      padding: 20px 24px 16px;
+    }
+
+    .brand h1 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .brand p {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .search {
+      display: grid;
+      gap: 7px;
+    }
+
+    .search label,
+    .meta-label {
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    input[type="search"] {
+      width: 100%;
+      height: 42px;
+      padding: 0 14px;
+      border: 1px solid var(--ink);
+      border-radius: 0;
+      outline: none;
+      background: #fff;
+      color: var(--ink);
+      box-shadow: 4px 4px 0 var(--ink);
+    }
+
+    input[type="search"]:focus {
+      border-color: var(--focus);
+      box-shadow: 4px 4px 0 var(--focus);
+    }
+
+    .selection {
+      min-width: 260px;
+      max-width: 360px;
+      border-left: 3px solid var(--accent);
+      padding-left: 14px;
+    }
+
+    .token {
+      margin-top: 6px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-family: "Cascadia Mono", Consolas, monospace;
+      font-size: 12px;
+    }
+
+    .copy-status {
+      margin-top: 4px;
+      min-height: 16px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .families {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding: 0 24px 18px;
+    }
+
+    .family-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      height: 34px;
+      padding: 0 12px;
+      border: 1px solid var(--ink);
+      background: var(--tile);
+      color: var(--ink);
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .family-btn[aria-pressed="true"] {
+      background: var(--ink);
+      color: #fff;
+    }
+
+    .family-btn span {
+      color: inherit;
+      opacity: .72;
+      font-family: "Cascadia Mono", Consolas, monospace;
+      font-size: 11px;
+    }
+
+    main {
+      display: grid;
+      gap: 16px;
+      padding: 22px 24px 32px;
+    }
+
+    .status-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .status-row strong {
+      color: var(--ink);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(132px, 1fr));
+      gap: 10px;
+    }
+
+    .icon-card {
+      min-width: 0;
+      height: 136px;
+      display: grid;
+      grid-template-rows: 1fr auto;
+      gap: 8px;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--tile);
+      box-shadow: none;
+      cursor: pointer;
+      transition: transform .12s ease, border-color .12s ease, box-shadow .12s ease;
+    }
+
+    .icon-card:hover,
+    .icon-card:focus-visible {
+      transform: translateY(-2px);
+      border-color: var(--ink);
+      box-shadow: var(--shadow);
+      outline: none;
+    }
+
+    .icon-card.selected {
+      border-color: var(--accent);
+      background: #fff7f8;
+      box-shadow: 0 0 0 2px var(--accent-soft);
+    }
+
+    .preview {
+      display: grid;
+      place-items: center;
+      min-width: 0;
+      min-height: 0;
+    }
+
+    .preview img {
+      width: 42px;
+      height: 42px;
+      object-fit: contain;
+    }
+
+    .icon-name {
+      min-width: 0;
+      color: var(--ink);
+      font-size: 12px;
+      font-weight: 650;
+      line-height: 1.2;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      text-align: center;
+    }
+
+    .icon-family {
+      margin-top: 3px;
+      color: var(--muted);
+      font-family: "Cascadia Mono", Consolas, monospace;
+      font-size: 10px;
+      text-align: center;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .more {
+      justify-self: center;
+      min-width: 180px;
+      height: 40px;
+      border: 1px solid var(--ink);
+      border-radius: 0;
+      background: var(--ink);
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .more[hidden] {
+      display: none;
+    }
+
+    .empty {
+      padding: 48px;
+      border: 1px dashed var(--line);
+      background: rgba(255, 253, 248, .7);
+      text-align: center;
+      color: var(--muted);
+    }
+
+    @media (max-width: 860px) {
+      .bar {
+        grid-template-columns: 1fr;
+        align-items: stretch;
+      }
+
+      .selection {
+        max-width: none;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .bar,
+      .families,
+      main {
+        padding-left: 14px;
+        padding-right: 14px;
+      }
+
+      .grid {
+        grid-template-columns: repeat(auto-fill, minmax(104px, 1fr));
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell" data-gallery-root>
+    <header>
+      <div class="bar">
+        <div class="brand">
+          <h1>Icon Browser</h1>
+          <p id="librarySummary">Loading icon library...</p>
+        </div>
+        <div class="search">
+          <label for="searchInput">Search by name or token</label>
+          <input id="searchInput" type="search" autocomplete="off" placeholder="Try: home, chart, openai, arrow">
+        </div>
+        <aside class="selection" aria-live="polite">
+          <div class="meta-label">Selected token</div>
+          <div id="selectedToken" class="token">Click an icon to copy its token</div>
+          <div id="copyStatus" class="copy-status"></div>
+        </aside>
+      </div>
+      <nav id="familyFilters" class="families" aria-label="Icon families"></nav>
+    </header>
+
+    <main>
+      <div class="status-row">
+        <div id="resultCount">Preparing icons...</div>
+        <div>Use in SVG as <strong>&lt;use data-icon="family/name"/&gt;</strong></div>
+      </div>
+      <section id="iconGrid" class="grid" aria-label="Icon results"></section>
+      <div id="emptyState" class="empty" hidden>No icons match this search.</div>
+      <button id="loadMore" class="more" type="button" hidden>Load more</button>
+    </main>
+  </div>
+
+  <script src="./icons_manifest.js"></script>
+  <script>
+    const manifest = window.ICON_MANIFEST || { total: 0, families: [] };
+    const pageSize = 240;
+    const state = {
+      family: "all",
+      query: "",
+      visible: pageSize,
+      selectedToken: ""
+    };
+
+    const allIcons = manifest.families.flatMap((family) =>
+      family.icons.map((icon) => ({
+        ...icon,
+        family: family.id,
+        searchText: `${family.id} ${icon.name} ${icon.token}`.toLowerCase()
+      }))
+    );
+
+    const familyFilters = document.getElementById("familyFilters");
+    const searchInput = document.getElementById("searchInput");
+    const iconGrid = document.getElementById("iconGrid");
+    const resultCount = document.getElementById("resultCount");
+    const librarySummary = document.getElementById("librarySummary");
+    const selectedToken = document.getElementById("selectedToken");
+    const copyStatus = document.getElementById("copyStatus");
+    const loadMore = document.getElementById("loadMore");
+    const emptyState = document.getElementById("emptyState");
+
+    function formatNumber(value) {
+      return new Intl.NumberFormat().format(value);
+    }
+
+    function escapeHtml(value) {
+      return value.replace(/[&<>"']/g, (char) => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        "\"": "&quot;",
+        "'": "&#039;"
+      }[char]));
+    }
+
+    function renderFamilyFilters() {
+      const buttons = [
+        { id: "all", label: "All", count: manifest.total },
+        ...manifest.families.map((family) => ({
+          id: family.id,
+          label: family.id,
+          count: family.count
+        }))
+      ];
+
+      familyFilters.innerHTML = buttons.map((family) => `
+        <button
+          class="family-btn"
+          type="button"
+          data-family="${escapeHtml(family.id)}"
+          aria-pressed="${family.id === state.family}"
+        >
+          ${escapeHtml(family.label)}
+          <span>${formatNumber(family.count)}</span>
+        </button>
+      `).join("");
+    }
+
+    function getFilteredIcons() {
+      const query = state.query.trim().toLowerCase();
+      return allIcons.filter((icon) => {
+        if (state.family !== "all" && icon.family !== state.family) return false;
+        return !query || icon.searchText.includes(query);
+      });
+    }
+
+    function render() {
+      const filtered = getFilteredIcons();
+      const visibleIcons = filtered.slice(0, state.visible);
+      const activeFamily = state.family === "all" ? "all families" : state.family;
+
+      librarySummary.textContent = `${formatNumber(manifest.total)} icons across ${manifest.families.length} families`;
+      resultCount.innerHTML = `Showing <strong>${formatNumber(visibleIcons.length)}</strong> of <strong>${formatNumber(filtered.length)}</strong> icons in ${escapeHtml(activeFamily)}`;
+      emptyState.hidden = filtered.length !== 0;
+      loadMore.hidden = visibleIcons.length >= filtered.length;
+      loadMore.textContent = `Load ${formatNumber(Math.min(pageSize, filtered.length - visibleIcons.length))} more`;
+
+      iconGrid.innerHTML = visibleIcons.map((icon) => `
+        <button class="icon-card ${icon.token === state.selectedToken ? "selected" : ""}" type="button" data-token="${escapeHtml(icon.token)}">
+          <span class="preview"><img loading="lazy" src="${escapeHtml(icon.path)}" alt=""></span>
+          <span>
+            <span class="icon-name">${escapeHtml(icon.name)}</span>
+            <span class="icon-family">${escapeHtml(icon.family)}</span>
+          </span>
+        </button>
+      `).join("");
+    }
+
+    async function copyToken(token) {
+      state.selectedToken = token;
+      selectedToken.textContent = token;
+      copyStatus.textContent = "Use: " + `<use data-icon="${token}"/>`;
+      render();
+
+      try {
+        await navigator.clipboard.writeText(token);
+        copyStatus.textContent = "Copied token. Use: " + `<use data-icon="${token}"/>`;
+      } catch (_error) {
+        copyStatus.textContent = "Clipboard unavailable here; token is selected above.";
+      }
+    }
+
+    familyFilters.addEventListener("click", (event) => {
+      const button = event.target.closest("[data-family]");
+      if (!button) return;
+      state.family = button.dataset.family;
+      state.visible = pageSize;
+      renderFamilyFilters();
+      render();
+    });
+
+    searchInput.addEventListener("input", () => {
+      state.query = searchInput.value;
+      state.visible = pageSize;
+      render();
+    });
+
+    iconGrid.addEventListener("click", (event) => {
+      const card = event.target.closest("[data-token]");
+      if (card) copyToken(card.dataset.token);
+    });
+
+    loadMore.addEventListener("click", () => {
+      state.visible += pageSize;
+      render();
+    });
+
+    renderFamilyFilters();
+    render();
+  </script>
+</body>
+</html>

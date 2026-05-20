@@ -1,0 +1,57 @@
+{
+  "schema_version": "easyslides.defense_topnav.layouts.v1",
+  "template_id": "defense_topnav",
+  "replication_mode": "classic",
+  "canvas": {
+    "width": 1280,
+    "height": 720,
+    "format": "ppt169"
+  },
+  "shells": [
+    {
+      "page_id": "cover",
+      "svg_path": "templates/layouts/defense_topnav/01_cover.svg",
+      "role": "cover",
+      "slots": ["TITLE", "SUBTITLE", "PRESENTER", "ADVISOR", "DATE"]
+    },
+    {
+      "page_id": "toc",
+      "svg_path": "templates/layouts/defense_topnav/02_toc.svg",
+      "role": "toc",
+      "slots": ["SECTION_1", "SECTION_2", "SECTION_3", "SECTION_4", "SECTION_5", "SECTION_6"]
+    },
+    {
+      "page_id": "chapter",
+      "svg_path": "templates/layouts/defense_topnav/02_chapter.svg",
+      "role": "chapter",
+      "slots": ["CHAPTER_NUM", "CHAPTER_TITLE", "CHAPTER_DESC"]
+    },
+    {
+      "page_id": "content",
+      "svg_path": "templates/layouts/defense_topnav/03_content.svg",
+      "role": "content",
+      "slots": ["ACTIVE_SECTION_LABEL", "PAGE_TITLE", "KEY_MESSAGE", "CONTENT_AREA", "CONTENT_BODY", "PAGE_NUM"],
+      "body_variants": "body_variants.json"
+    },
+    {
+      "page_id": "ending",
+      "svg_path": "templates/layouts/defense_topnav/04_ending.svg",
+      "role": "ending",
+      "slots": ["CLOSING_TITLE", "CLOSING_SUBTITLE", "PRESENTER", "ADVISOR", "CONTACT"]
+    }
+  ],
+  "default_sections": [
+    "研究背景及现状",
+    "研究目标和内容",
+    "研究方法与思路",
+    "关键技术与创新",
+    "已开展工作",
+    "预期成果"
+  ],
+  "navigation_model": {
+    "base_shell": "templates/layouts/defense_topnav/03_content.svg",
+    "state_file": "templates/layouts/defense_topnav/navigation_states.json",
+    "active_section_slot": "ACTIVE_SECTION_LABEL",
+    "variants": ["D02-NAV-01", "D02-NAV-02", "D02-NAV-03", "D02-NAV-04", "D02-NAV-05", "D02-NAV-06"]
+  }
+}

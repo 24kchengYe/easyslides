@@ -1,0 +1,67 @@
+{
+  "schema_version": "easyslides.academic_scqa.layouts.v1",
+  "template_id": "academic_scqa",
+  "style_system": "academic_blue_cyan_teal_scqa_report",
+  "replication_mode": "classic",
+  "distillation_model": "five_shells_plus_scqa_body_variants",
+  "canvas": {"width": 1280, "height": 720, "format": "ppt169"},
+  "source": {
+    "repo": "academic_report_html_slot_templates",
+    "source_surface": "12 HTML templates with data-slot manifest"
+  },
+  "shells": [
+    {
+      "layout_id": "A02-S01",
+      "page_id": "cover",
+      "svg_path": "templates/layouts/academic_scqa/01_cover.svg",
+      "role_fit": ["cover"],
+      "slots": ["LOGO", "TITLE", "SUBTITLE", "PRESENTER", "AFFILIATION", "DATE", "FOOTER"]
+    },
+    {
+      "layout_id": "A02-S02",
+      "page_id": "toc",
+      "svg_path": "templates/layouts/academic_scqa/02_toc.svg",
+      "role_fit": ["agenda", "SCQA_overview"],
+      "slots": ["LOGO", "TOC_TITLE", "TOC_INTRO", "TOC_ITEM_1_TITLE", "TOC_ITEM_2_TITLE", "TOC_ITEM_3_TITLE", "TOC_ITEM_4_TITLE", "TOC_ITEM_5_TITLE"]
+    },
+    {
+      "layout_id": "A02-S03",
+      "page_id": "chapter",
+      "svg_path": "templates/layouts/academic_scqa/02_chapter.svg",
+      "role_fit": ["section_open", "SCQA_phase_open"],
+      "slots": ["LOGO", "CHAPTER_NUM", "CHAPTER_TITLE", "CHAPTER_DESC", "SECTION_STATEMENT", "SCQA_LABEL"]
+    },
+    {
+      "layout_id": "A02-S04",
+      "page_id": "content",
+      "svg_path": "templates/layouts/academic_scqa/03_content.svg",
+      "role_fit": ["background_context", "problem_analysis", "research_question", "method", "evidence", "comparison", "data", "finding"],
+      "slots": ["LOGO", "PAGE_TITLE", "KEY_MESSAGE", "SECTION_NAME", "CONTENT_AREA", "CONTENT_BODY", "SOURCE", "PAGE_NUM"],
+      "body_variants": "body_variants.json"
+    },
+    {
+      "layout_id": "A02-S05",
+      "page_id": "ending",
+      "svg_path": "templates/layouts/academic_scqa/04_ending.svg",
+      "role_fit": ["closing"],
+      "slots": ["LOGO", "THANK_YOU", "ENDING_SUBTITLE", "PRESENTER", "CONTACT_INFO", "FOOTER"]
+    }
+  ],
+  "logo_policy": {
+    "slot": "LOGO",
+    "slot_type": "image",
+    "source_priority": ["user-provided materials"],
+    "fallback": "degree-cap icon",
+    "replacement_rule": "When a real logo is found, replace the full LOGO group or hide the fallback drawing."
+  },
+  "default_sections": ["Situation", "Complication", "Question", "Answer", "Discussion"],
+  "global_rules": [
+    "Keep the five shell SVG files as the stable template surface.",
+    "Select a body variant from body_variants.json for every content slide.",
+    "Use SCQA phase intent before visual appearance when choosing a content variant.",
+    "Resolve LOGO from user-provided materials first; keep the degree-cap icon fallback when no suitable logo is available.",
+    "Keep generated content inside CONTENT_AREA and split slides before shrinking text below readable size.",
+    "Keep PAGE_TITLE short and KEY_MESSAGE as the conclusion sentence; do not duplicate wording."
+  ]
+}
+

@@ -1,0 +1,12 @@
+{
+  "academic01": "academic_general",
+  "academic02": "academic_scqa",
+  "academic_defense": "academic_general",
+  "defense01": "defense_leftnav",
+  "defense02": "defense_topnav",
+  "defense_s01": "defense_leftnav",
+  "literature01": "literature_minimal",
+  "literature02": "literature_minimal",
+  "literature_s01": "literature_minimal",
+  "literature_s02": "literature_minimal"
+}

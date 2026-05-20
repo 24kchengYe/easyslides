@@ -1,0 +1,69 @@
+# Secrets and local credentials
+.env
+.env.*
+!.env.example
+.mineru_token
+*.pem
+*.key
+
+# Python caches and local environments
+__pycache__/
+**/__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+
+# Local editor and OS state
+.claude/settings.local.json
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Disposable workspaces and downloads
+.codex_tmp/
+tmp/
+downloads/
+*.log
+*.tmp
+*.bak
+*.orig
+
+# Generated deck/project artifacts. Keep build scripts, ignore imported
+# source material, rendered decks, previews, unpacked OOXML, and reports.
+projects/README.md
+projects/PPT_PROMPTS.md
+projects/**/sources/
+projects/**/exports/
+projects/**/reports/
+projects/**/plans/
+projects/**/previews/
+projects/**/qa/
+projects/**/qa_*/
+projects/**/qa-unpacked/
+projects/**/qa_unpacked/
+projects/**/qa_unpacked*/
+projects/**/svg_output/
+projects/**/svg_final/
+projects/**/storyboard/
+projects/**/notes/
+projects/**/backup/
+projects/**/template_package/
+projects/**/pipeline_state.json
+projects/**/*.md
+projects/**/*.json
+projects/**/*.svg
+projects/**/*.pptx
+projects/**/*.pdf
+projects/**/*.docx
+projects/**/*.xlsx
+projects/**/*.png
+projects/**/*.jpg
+projects/**/*.jpeg
+projects/**/*.webp
