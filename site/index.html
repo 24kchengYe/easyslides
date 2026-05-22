@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>EasySlides Examples</title>
+  <link rel="preload" as="image" href="assets/seminar-hall.webp" type="image/webp" fetchpriority="high">
   <style>
     :root {
       --bg: #f2f3ef;
@@ -180,7 +181,10 @@
       background:
         linear-gradient(180deg, rgba(255, 248, 229, 0.68), rgba(255, 227, 171, 0.48) 44%, rgba(95, 56, 24, 0.54)),
         linear-gradient(90deg, rgba(45, 33, 24, 0.46), transparent 22%, transparent 78%, rgba(45, 33, 24, 0.42)),
-        url("assets/报告厅.png") center / cover no-repeat;
+        image-set(
+          url("assets/seminar-hall.webp") type("image/webp"),
+          url("assets/seminar-hall.png") type("image/png")
+        ) center / cover no-repeat;
     }
 
     .home-hero::before {
@@ -1338,7 +1342,10 @@
     }
 
     .detail-stage[data-scene="seminar"] {
-      --stage-photo: url("assets/报告厅.png");
+      --stage-photo: image-set(
+        url("assets/seminar-hall.webp") type("image/webp"),
+        url("assets/seminar-hall.png") type("image/png")
+      );
     }
 
     .detail-stage[data-scene="classroom"] .photo-frame {
@@ -1349,7 +1356,10 @@
     }
 
     .detail-stage[data-scene="classroom"] {
-      --stage-photo: url("assets/教室.png");
+      --stage-photo: image-set(
+        url("assets/classroom.webp") type("image/webp"),
+        url("assets/classroom.png") type("image/png")
+      );
     }
 
     .detail-stage[data-scene="meeting"] .photo-frame {
@@ -1360,7 +1370,10 @@
     }
 
     .detail-stage[data-scene="meeting"] {
-      --stage-photo: url("assets/scenes-16x9/会议室.png");
+      --stage-photo: image-set(
+        url("assets/scenes-16x9/meeting-room.webp") type("image/webp"),
+        url("assets/scenes-16x9/meeting-room.png") type("image/png")
+      );
     }
 
     .detail-stage[data-scene="display"] .photo-frame {
@@ -1371,7 +1384,10 @@
     }
 
     .detail-stage[data-scene="display"] {
-      --stage-photo: url("assets/scenes-16x9/会议室.png");
+      --stage-photo: image-set(
+        url("assets/scenes-16x9/meeting-room.webp") type("image/webp"),
+        url("assets/scenes-16x9/meeting-room.png") type("image/png")
+      );
     }
 
     .detail-copy {
@@ -1814,7 +1830,7 @@
 
     <section class="detail-stage">
       <div class="photo-frame">
-        <img class="scene-photo" src="assets/报告厅.png" alt="" aria-hidden="true">
+        <img class="scene-photo" src="assets/seminar-hall.webp" alt="" aria-hidden="true">
         <div class="photo-vignette" aria-hidden="true"></div>
 
         <div class="big-screen-wrap">
@@ -1927,9 +1943,9 @@
     };
 
     const scenePhotos = {
-      seminar: "assets/报告厅.png",
-      classroom: "assets/教室.png",
-      meeting: "assets/scenes-16x9/会议室.png"
+      seminar: "assets/seminar-hall.webp",
+      classroom: "assets/classroom.webp",
+      meeting: "assets/scenes-16x9/meeting-room.webp"
     };
 
     function t(key) {
