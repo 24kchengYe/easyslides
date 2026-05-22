@@ -1,9 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="1280" height="720" viewBox="0 0 1280 720">
+﻿<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="1280" height="720" viewBox="0 0 1280 720">
   <rect x="0" y="0" width="1280" height="720" fill="#FFFFFF"/>
 
   <g id="page-number">
     <rect x="1233.33" y="673.33" width="46.67" height="46.67" fill="#8B0012"/>
-    <text x="1256.67" y="704.64" text-anchor="middle" xml:space="preserve" font-family="微软雅黑, Microsoft YaHei, sans-serif" font-size="24" fill="#FFFFFF" font-weight="bold" data-slot="PAGE_NUM" data-slot-token="{{PAGE_NUM}}" data-pptx-textbox="true"><tspan>1</tspan></text>
+    <text x="1256.67" y="704.64" text-anchor="middle" xml:space="preserve" font-family="微软雅黑, Microsoft YaHei, sans-serif" font-size="24" fill="#FFFFFF" font-weight="bold" data-slot="PAGE_NUM" data-slot-token="{{PAGE_NUM}}" data-pptx-textbox="true" data-pptx-box-x="1233.33" data-pptx-box-y="673.33" data-pptx-box-w="46.67" data-pptx-box-h="46.67" data-pptx-valign="middle"><tspan>1</tspan></text>
   </g>
 
   <g id="left-navigation" data-slot="ACTIVE_SECTION" data-component="left-navigation" data-style-ref="component_styles.navigation_styles.left_navigation">
@@ -43,20 +43,21 @@
   </g>
 
   <g id="content-header">
-    <g id="title-marker" transform="rotate(90 347.79 62.64)">
-      <polygon points="347.79,48.22 364.52,77.06 331.07,77.06" fill="#8B0012"/>
+    <g id="title-marker">
+      <polygon points="360,62 332,78 332,46" fill="#8B0012"/>
     </g>
-    <text x="374.86" y="70.4" text-anchor="start" xml:space="preserve" font-family="微软雅黑, Microsoft YaHei, sans-serif" font-size="32" fill="#000000" font-weight="bold" data-slot="PAGE_TITLE" data-pptx-box-x="365.26" data-pptx-box-y="38.4" data-pptx-box-w="810" data-pptx-box-h="48.47" data-pptx-textbox="true"><tspan>{{PAGE_TITLE}}</tspan></text>
+    <text x="392" y="72.4" text-anchor="start" xml:space="preserve" font-family="微软雅黑, Microsoft YaHei, sans-serif" font-size="32" fill="#000000" font-weight="bold" data-slot="PAGE_TITLE" data-pptx-box-x="388" data-pptx-box-y="40" data-pptx-box-w="620" data-pptx-box-h="44" data-pptx-valign="middle" data-pptx-textbox="true"><tspan>{{PAGE_TITLE}}</tspan></text>
+    <rect id="header-separator" x="310" y="90" width="910" height="2.4" fill="#8B0012"/>
   </g>
 
   <g id="key-message">
-    <rect x="310" y="96" width="910" height="48" rx="4" ry="4" fill="#F8F2F3" stroke="#8B0012" stroke-width="1" stroke-opacity="0.18"/>
-    <rect x="310" y="96" width="7" height="48" fill="#8B0012"/>
-    <text x="334" y="126.5" text-anchor="start" xml:space="preserve" font-family="微软雅黑, Microsoft YaHei, sans-serif" font-size="20" fill="#3A0008" font-weight="bold" data-slot="KEY_MESSAGE" data-pptx-box-x="334" data-pptx-box-y="104" data-pptx-box-w="862" data-pptx-box-h="32" data-pptx-textbox="true"><tspan>{{KEY_MESSAGE}}</tspan></text>
+    <rect x="310" y="112" width="910" height="48" rx="4" ry="4" fill="#F8F2F3" stroke="#8B0012" stroke-width="1" stroke-opacity="0.18"/>
+    <rect x="310" y="112" width="7" height="48" fill="#8B0012"/>
+    <text x="334" y="142.5" text-anchor="start" xml:space="preserve" font-family="微软雅黑, Microsoft YaHei, sans-serif" font-size="20" fill="#3A0008" font-weight="bold" data-slot="KEY_MESSAGE" data-pptx-box-x="334" data-pptx-box-y="120" data-pptx-box-w="862" data-pptx-box-h="32" data-pptx-valign="middle" data-pptx-textbox="true"><tspan>{{KEY_MESSAGE}}</tspan></text>
   </g>
 
   <g id="body-region">
-    <rect id="content-area" data-slot="CONTENT_AREA" x="310" y="158" width="910" height="500" rx="12" ry="12" fill="none" stroke="none"/>
-    <text x="334" y="210" text-anchor="start" xml:space="preserve" font-family="微软雅黑 Light, Microsoft YaHei, sans-serif" font-size="23" fill="#000000" data-slot="CONTENT_BODY" data-pptx-box-x="334" data-pptx-box-y="182" data-pptx-box-w="862" data-pptx-box-h="444" data-pptx-textbox="true"><tspan>{{CONTENT_BODY}}</tspan></text>
+    <rect id="content-area" data-slot="CONTENT_AREA" x="310" y="210" width="910" height="440" rx="12" ry="12" fill="none" stroke="none"/>
+    <text x="334" y="252" text-anchor="start" xml:space="preserve" font-family="微软雅黑 Light, Microsoft YaHei, sans-serif" font-size="23" fill="#000000" data-slot="CONTENT_BODY" data-pptx-box-x="334" data-pptx-box-y="230" data-pptx-box-w="862" data-pptx-box-h="390" data-pptx-textbox="true"><tspan>{{CONTENT_BODY}}</tspan></text>
   </g>
 </svg>

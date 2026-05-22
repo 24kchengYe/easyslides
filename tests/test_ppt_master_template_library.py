@@ -379,7 +379,7 @@ class PptMasterTemplateLibraryTests(unittest.TestCase):
 
         self.assertEqual(nav["active_section_slot"], "ACTIVE_SECTION")
         self.assertEqual(nav["active_label_slot"], "ACTIVE_SECTION_LABEL")
-        expected_content_area = {"x": 310, "y": 158, "width": 910, "height": 500}
+        expected_content_area = {"x": 310, "y": 210, "width": 910, "height": 440}
         self.assertEqual(nav["content_area"], expected_content_area)
         self.assertEqual(nav["navigation_surface"], {"x": 0, "y": 0, "width": 253.38, "height": 720, "fill": "#F2F2F2"})
         self.assertEqual(nav["variant_model"]["mode"], "single_svg_five_active_section_variants")
@@ -424,6 +424,9 @@ class PptMasterTemplateLibraryTests(unittest.TestCase):
             self.assertAlmostEqual(min(y for _, y in pointer_points), section["active_band"]["y"] + section["active_band"]["height"] - 0.01, places=2)
 
         self.assertGreaterEqual(len(body["variants"]), 5)
+        self.assertEqual(body["content_area"], expected_content_area)
+        self.assertEqual(body["component_spacing"]["min_gap"], 32)
+        self.assertIn("independent body components", body["component_spacing"]["scope"])
         self.assertEqual(palettes["schema_version"], "easyslides.theme_palettes.v1")
         self.assertEqual(palettes["default_palette"], "wine")
         self.assertEqual(
@@ -434,6 +437,7 @@ class PptMasterTemplateLibraryTests(unittest.TestCase):
         self.assertEqual(palettes["palettes"]["academic_purple"]["colors"]["primary"], "#80308B")
         self.assertEqual(palettes["palettes"]["academic_green"]["colors"]["primary"], "#016F35")
         self.assertEqual(components["tokens"]["content_area"], expected_content_area)
+        self.assertEqual(components["tokens"]["gap"], 32)
         self.assertEqual(components["navigation_styles"]["left_navigation"]["surface"], nav["navigation_surface"])
         self.assertEqual(components["navigation_styles"]["left_navigation"]["labels"]["active"]["x"], 72.54)
         self.assertEqual(components["navigation_styles"]["left_navigation"]["labels"]["active"]["text_anchor"], "start")
@@ -454,8 +458,15 @@ class PptMasterTemplateLibraryTests(unittest.TestCase):
             self.assertIn(token, content_text)
         self.assertNotIn("{{CITATION}}", content_text)
         self.assertNotIn('data-slot="CITATION"', content_text)
+        self.assertNotIn("#E7E6E6", content_text)
+        self.assertIn('id="nav-surface" x="0" y="0" width="253.38" height="720" fill="#F2F2F2"', content_text)
         self.assertIn("PAGE_TITLE` as the short running title", spec_text)
         self.assertIn("KEY_MESSAGE` as the more detailed one-sentence claim", spec_text)
+        self.assertIn("Do not use ad hoc gray fills", spec_text)
+        self.assertIn("Flatten directional marker geometry before export", spec_text)
+        self.assertIn("content-page header on a fixed grid", spec_text)
+        self.assertIn("header-separator", spec_text)
+        self.assertIn("Keep `PAGE_NUM` centered", spec_text)
         content_root = ET.fromstring(content_text)
         active_label = next(
             node for node in content_root.iter()
@@ -490,6 +501,55 @@ class PptMasterTemplateLibraryTests(unittest.TestCase):
             if node.tag.split("}")[-1] == "rect" and node.attrib.get("id") == "nav-surface"
         )
         self.assertEqual(float(nav_surface.attrib["width"]), 253.38)
+        page_number_group = next(
+            node for node in content_root.iter()
+            if node.tag.split("}")[-1] == "g" and node.attrib.get("id") == "page-number"
+        )
+        page_number_rect = next(
+            node for node in page_number_group.iter()
+            if node.tag.split("}")[-1] == "rect"
+        )
+        page_number_text = next(
+            node for node in page_number_group.iter()
+            if node.tag.split("}")[-1] == "text" and node.attrib.get("data-slot") == "PAGE_NUM"
+        )
+        self.assertEqual(page_number_text.attrib["text-anchor"], "middle")
+        self.assertEqual(page_number_text.attrib["data-pptx-valign"], "middle")
+        self.assertEqual(float(page_number_text.attrib["data-pptx-box-x"]), float(page_number_rect.attrib["x"]))
+        self.assertEqual(float(page_number_text.attrib["data-pptx-box-y"]), float(page_number_rect.attrib["y"]))
+        self.assertEqual(float(page_number_text.attrib["data-pptx-box-w"]), float(page_number_rect.attrib["width"]))
+        self.assertEqual(float(page_number_text.attrib["data-pptx-box-h"]), float(page_number_rect.attrib["height"]))
+        title_marker = next(
+            node for node in content_root.iter()
+            if node.tag.split("}")[-1] == "g" and node.attrib.get("id") == "title-marker"
+        )
+        self.assertNotIn("transform", title_marker.attrib)
+        title_marker_polygon = next(
+            node for node in title_marker.iter()
+            if node.tag.split("}")[-1] == "polygon"
+        )
+        title_points = [
+            tuple(float(value) for value in pair.split(","))
+            for pair in title_marker_polygon.attrib["points"].split()
+        ]
+        self.assertEqual(max(title_points, key=lambda point: point[0]), title_points[0])
+        page_title = next(
+            node for node in content_root.iter()
+            if node.tag.split("}")[-1] == "text" and node.attrib.get("data-slot") == "PAGE_TITLE"
+        )
+        marker_right = max(point[0] for point in title_points)
+        marker_center_y = (min(point[1] for point in title_points) + max(point[1] for point in title_points)) / 2
+        page_title_box_center_y = float(page_title.attrib["data-pptx-box-y"]) + float(page_title.attrib["data-pptx-box-h"]) / 2
+        self.assertGreaterEqual(float(page_title.attrib["x"]) - marker_right, 28)
+        self.assertAlmostEqual(marker_center_y, page_title_box_center_y, places=1)
+        self.assertEqual(page_title.attrib["data-pptx-valign"], "middle")
+        header_separator = next(
+            node for node in content_root.iter()
+            if node.tag.split("}")[-1] == "rect" and node.attrib.get("id") == "header-separator"
+        )
+        self.assertEqual(header_separator.attrib["fill"], "#8B0012")
+        self.assertEqual(float(header_separator.attrib["x"]), 310)
+        self.assertEqual(float(header_separator.attrib["width"]), 910)
         content_area = next(
             node for node in content_root.iter()
             if node.tag.split("}")[-1] == "rect" and node.attrib.get("id") == "content-area"
@@ -501,6 +561,32 @@ class PptMasterTemplateLibraryTests(unittest.TestCase):
         self.assertEqual(content_area.attrib["fill"], "none")
         self.assertEqual(content_area.attrib["stroke"], "none")
         self.assertNotIn("stroke-dasharray", content_area.attrib)
+        key_message = next(
+            node for node in content_root.iter()
+            if node.tag.split("}")[-1] == "g" and node.attrib.get("id") == "key-message"
+        )
+        key_rects = [
+            node
+            for node in key_message.iter()
+            if node.tag.split("}")[-1] == "rect" and node.attrib.get("height")
+        ]
+        key_text = next(
+            node for node in key_message.iter()
+            if node.tag.split("}")[-1] == "text" and node.attrib.get("data-slot") == "KEY_MESSAGE"
+        )
+        self.assertEqual(key_text.attrib["data-pptx-valign"], "middle")
+        key_top = min(float(node.attrib["y"]) for node in key_rects)
+        key_bottom = max(float(node.attrib["y"]) + float(node.attrib["height"]) for node in key_rects)
+        separator_bottom = float(header_separator.attrib["y"]) + float(header_separator.attrib["height"])
+        self.assertGreaterEqual(key_top - separator_bottom, 16)
+        self.assertGreaterEqual(float(content_area.attrib["y"]) - key_bottom, 32)
+
+        toc_root = ET.fromstring((template_dir / "02_toc.svg").read_text(encoding="utf-8"))
+        toc_marker = next(
+            node for node in toc_root.iter()
+            if node.tag.split("}")[-1] == "g" and node.attrib.get("id") == "shape-9"
+        )
+        self.assertNotIn("transform", toc_marker.attrib)
 
     def test_literature_minimal_is_classic_minimal_shell(self):
         layouts_root = TEMPLATES / "layouts"
@@ -525,8 +611,14 @@ class PptMasterTemplateLibraryTests(unittest.TestCase):
             ],
         )
 
+        layouts_contract = json.loads((template_dir / "layouts.json").read_text(encoding="utf-8"))
+        self.assertEqual(
+            layouts_contract["text_fit_policy"]["schema_version"],
+            "easyslides.template_text_fit_policy.v1",
+        )
+        self.assertIn("slot_models", layouts_contract)
+
         for sidecar in [
-            "layouts.json",
             "page_catalog.json",
             "rules.md",
             "story_structure.json",
@@ -563,6 +655,27 @@ class PptMasterTemplateLibraryTests(unittest.TestCase):
         ]
         self.assertEqual(len(body_nodes), 1)
         self.assertEqual(body_nodes[0].attrib.get("data-pptx-textbox"), "true")
+
+    def test_literature_minimal_pptx_text_boxes_respect_visual_frames(self):
+        template_dir = TEMPLATES / "layouts" / "literature_minimal"
+
+        def slot_text(root: ET.Element, slot: str) -> ET.Element:
+            for group in root.iter():
+                if group.attrib.get("data-slot") == slot:
+                    for node in group.iter():
+                        if node.tag.split("}")[-1] == "text":
+                            return node
+            self.fail(f"{slot} text node missing")
+
+        chapter_root = ET.fromstring((template_dir / "02_chapter.svg").read_text(encoding="utf-8"))
+        chapter_desc = slot_text(chapter_root, "CHAPTER_DESC")
+        self.assertGreaterEqual(float(chapter_desc.attrib["data-pptx-box-x"]), 512)
+
+        content_root = ET.fromstring((template_dir / "03_content.svg").read_text(encoding="utf-8"))
+        key_message = slot_text(content_root, "KEY_MESSAGE")
+        self.assertEqual(key_message.attrib.get("data-pptx-valign"), "middle")
+        self.assertEqual(float(key_message.attrib["data-pptx-box-y"]), 116)
+        self.assertEqual(float(key_message.attrib["data-pptx-box-h"]), 74)
 
     def test_defense_leftnav_forbids_meta_slide_labels_in_generated_copy(self):
         template_dir = TEMPLATES / "layouts" / "defense_leftnav"
@@ -645,6 +758,39 @@ class PptMasterTemplateLibraryTests(unittest.TestCase):
             "CONTENT_AREA",
         ]:
             self.assertNotIn(duplicated_rule_phrase, rules_text)
+
+    def test_defense_leftnav_template_has_no_default_school_brand(self):
+        template_dir = TEMPLATES / "layouts" / "defense_leftnav"
+        spec_text = (template_dir / "design_spec.md").read_text(encoding="utf-8")
+        layouts_contract = json.loads((template_dir / "layouts.json").read_text(encoding="utf-8"))
+        template_text = "\n".join(
+            path.read_text(encoding="utf-8")
+            for path in template_dir.iterdir()
+            if path.is_file() and path.suffix in {".svg", ".json", ".md"}
+        )
+
+        self.assertIn("specific school logo must never be baked into the template", spec_text)
+        self.assertIn("logo-free deck", spec_text)
+        self.assertIn("chapter transition pages", spec_text)
+        self.assertIn("upper-left", spec_text)
+        self.assertIn("other non-content page brand placements unchanged", spec_text)
+        brand_slots = layouts_contract["optional_brand_slots"]
+        self.assertEqual(brand_slots["enabled"], "source_matched_only")
+        self.assertTrue(brand_slots["no_default_school_brand"])
+        self.assertEqual(brand_slots["chapter"]["placement"], "upper_left")
+        self.assertEqual(brand_slots["chapter"]["box"], {"x": 54, "y": 42, "width": 178, "height": 32})
+        self.assertEqual(brand_slots["content"]["placement"], "upper_right_header")
+        self.assertEqual(brand_slots["content"]["box"], {"x": 1038, "y": 38, "width": 188, "height": 34})
+        self.assertEqual(brand_slots["emblem_top_right"]["placement"], "upper_right")
+        self.assertEqual(brand_slots["emblem_top_right"]["box"], {"x": 1048, "y": 44, "width": 178, "height": 32})
+        for forbidden in [
+            "华东师范大学",
+            "East China Normal University",
+            "ECNU",
+            "ecnu_logo",
+            "school_brand_wordmark",
+        ]:
+            self.assertNotIn(forbidden, template_text)
 
     def test_chart_library_matches_ppt_master_catalog(self):
         charts_root = TEMPLATES / "charts"

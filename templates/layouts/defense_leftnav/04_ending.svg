@@ -4,7 +4,7 @@
 </g>
 <g id="shape-45" data-name="文本框 44">
 <rect x="252.65" y="277.62" width="774.69" height="87.24" fill="none"/>
-<text x="640" y="336.82" text-anchor="middle" xml:space="preserve" font-family="&quot;微软雅黑&quot;, sans-serif" font-size="64" fill="#FFFFFF" font-weight="bold" letter-spacing="4" data-slot="CLOSING_TITLE"><tspan fill="#FFFFFF" font-size="64" font-weight="bold" letter-spacing="4">{{CLOSING_TITLE}}</tspan></text>
+<text x="640" y="336.82" text-anchor="middle" xml:space="preserve" font-family="&quot;微软雅黑&quot;, sans-serif" font-size="64" fill="#FFFFFF" font-weight="bold" letter-spacing="4" data-slot="CLOSING_TITLE" data-pptx-textbox="true" data-pptx-box-x="250" data-pptx-box-y="269.62" data-pptx-box-w="780" data-pptx-box-h="99.2"><tspan fill="#FFFFFF" font-size="64" font-weight="bold" letter-spacing="4">{{CLOSING_TITLE}}</tspan></text>
 </g>
 <g id="shape-214" data-name="组合 213">
 <g id="shape-106" data-name="任意多边形: 形状 105">
@@ -192,18 +192,15 @@
 <g id="shape-13" data-name="图形 1">
 <path d="M 207.47 587.22 L 206.19 587.22 C 205.37 580.49 198.92 575.06 192.09 575.06 C 185.27 575.06 178.82 580.49 177.99 587.22 L 176.71 587.22 C 177.38 581.02 181.78 575.93 187.51 574.21 C 184.57 572.64 182.48 569.72 182.48 566.1 C 182.48 560.92 187.01 556.51 192.09 556.51 C 197.17 556.51 201.71 560.92 201.71 566.1 C 201.71 569.72 199.61 572.64 196.68 574.21 C 202.4 575.93 206.8 581.02 207.47 587.22 Z M 200.42 566.1 C 200.42 561.86 196.25 557.79 192.09 557.79 C 187.93 557.79 183.76 561.86 183.76 566.1 C 183.76 570.35 187.93 573.78 192.09 573.78 C 196.25 573.78 200.42 570.35 200.42 566.1 Z" fill="#8B0012" stroke-width="0.033" stroke-linecap="butt" stroke="none" stroke-linejoin="miter"/>
 </g>
-<g id="shape-14" data-name="文本框 13">
-<rect x="213.87" y="552.45" width="163.2" height="38.67" fill="none"/>
-<text x="223.47" y="577.65" text-anchor="start" xml:space="preserve" font-family="&quot;微软雅黑&quot;, sans-serif" font-size="24" fill="#000000"><tspan fill="#000000" font-size="24">答辩人：</tspan><tspan fill="#000000" font-size="24" data-slot="PRESENTER">{{PRESENTER}}</tspan></text>
-</g>
-<g id="shape-15" data-name="文本框 14">
-<rect x="565.01" y="552.45" width="187.2" height="38.67" fill="none"/>
-<text x="574.61" y="577.65" text-anchor="start" xml:space="preserve" font-family="&quot;微软雅黑&quot;, sans-serif" font-size="24" fill="#000000"><tspan fill="#000000" font-size="24">指导老师：</tspan><tspan fill="#000000" font-size="24" data-slot="ADVISOR">{{ADVISOR}}</tspan></text>
-</g>
-<g id="shape-16" data-name="文本框 15">
-<rect x="930.39" y="552.45" width="187.51" height="38.78" fill="none"/>
-<text x="939.99" y="577.65" text-anchor="start" xml:space="preserve" font-family="&quot;微软雅黑&quot;, sans-serif" font-size="24" fill="#000000"><tspan fill="#000000" font-size="24">联系方式：</tspan><tspan fill="#000000" font-size="24" data-slot="CONTACT">{{CONTACT}}</tspan></text>
-</g>
 <g id="shape-17" data-name="Freeform 21">
 <path d="M 907.58 554.83 C 916.99 554.83 924.56 562.43 924.56 571.84 C 924.56 581.25 916.99 588.85 907.58 588.85 C 898.18 588.85 890.55 581.25 890.55 571.84 C 890.55 562.43 898.18 554.83 907.58 554.83 Z M 909.36 572.89 C 908.96 573.65 908.1 574.12 907.24 573.94 C 906.09 573.71 905.35 572.6 905.58 571.49 C 905.81 570.32 906.84 569.56 907.99 569.73 C 908.16 569.79 908.39 569.85 908.5 569.97 C 908.56 569.97 908.62 569.97 908.67 569.91 C 910.68 567.98 912.75 565.99 914.81 564.07 C 915.44 563.42 916.36 564.42 915.73 565 C 913.66 566.99 911.6 568.97 909.53 570.9 C 909.48 570.96 909.48 571.02 909.53 571.08 C 909.59 571.2 909.59 571.37 909.65 571.55 C 909.65 571.6 909.65 571.6 909.71 571.6 C 911.48 571.9 913.32 572.31 915.1 572.6 C 916.07 572.77 915.84 574 914.87 573.83 C 913.09 573.48 911.26 573.18 909.53 572.83 C 909.48 572.83 909.42 572.83 909.36 572.89 Z M 907.41 572.89 C 906.09 572.66 906.44 570.55 907.76 570.79 C 909.13 571.02 908.73 573.12 907.41 572.89 Z M 907.58 557.11 C 915.73 557.11 922.33 563.71 922.33 571.84 C 922.33 579.96 915.73 586.63 907.58 586.63 C 899.44 586.63 892.84 579.96 892.84 571.84 C 892.84 563.71 899.44 557.11 907.58 557.11 Z M 907.58 581.19 C 908.5 581.19 909.25 581.89 909.25 582.83 C 909.25 583.76 908.5 584.52 907.58 584.52 C 906.67 584.52 905.92 583.76 905.92 582.83 C 905.92 581.89 906.67 581.19 907.58 581.19 Z M 907.58 559.16 C 908.85 559.16 909.88 560.21 909.88 561.49 C 909.88 562.78 908.85 563.83 907.58 563.83 C 906.26 563.83 905.23 562.78 905.23 561.49 C 905.23 560.21 906.26 559.16 907.58 559.16 Z" fill="#8B0012" stroke="none"/>
+</g>
+<g id="ending-metadata-clean-footer">
+<rect x="90" y="540" width="1160" height="68" fill="#FFFFFF" stroke="none"/>
+<use data-icon="lucide/user-round" x="122" y="556" width="30" height="30" fill="#8B0012" stroke-width="2.25"/>
+<use data-icon="lucide/graduation-cap" x="488" y="556" width="30" height="30" fill="#8B0012" stroke-width="2.25"/>
+<use data-icon="tabler-filled/mail" x="862" y="556" width="30" height="30" fill="#8B0012" stroke-width="2.25"/>
+<text x="164" y="578" text-anchor="start" xml:space="preserve" font-family="&quot;微软雅黑&quot;, sans-serif" font-size="22" fill="#000000" data-pptx-textbox="true" data-pptx-box-x="164" data-pptx-box-y="552" data-pptx-box-w="270" data-pptx-box-h="38" data-pptx-valign="middle"><tspan fill="#000000" font-size="22">答辩人：</tspan><tspan fill="#000000" font-size="22" data-slot="PRESENTER">{{PRESENTER}}</tspan></text>
+<text x="530" y="578" text-anchor="start" xml:space="preserve" font-family="&quot;微软雅黑&quot;, sans-serif" font-size="22" fill="#000000" data-pptx-textbox="true" data-pptx-box-x="530" data-pptx-box-y="552" data-pptx-box-w="315" data-pptx-box-h="38" data-pptx-valign="middle"><tspan fill="#000000" font-size="22">指导老师：</tspan><tspan fill="#000000" font-size="22" data-slot="ADVISOR">{{ADVISOR}}</tspan></text>
+<text x="904" y="578" text-anchor="start" xml:space="preserve" font-family="&quot;微软雅黑&quot;, sans-serif" font-size="22" fill="#000000" data-pptx-textbox="true" data-pptx-box-x="904" data-pptx-box-y="552" data-pptx-box-w="315" data-pptx-box-h="38" data-pptx-valign="middle"><tspan fill="#000000" font-size="22">专业：</tspan><tspan fill="#000000" font-size="22" data-slot="CONTACT">{{CONTACT}}</tspan></text>
 </g></svg>

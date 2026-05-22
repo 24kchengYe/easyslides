@@ -4,11 +4,11 @@
 </g>
 <g id="shape-45" data-name="文本框 44">
 <rect x="240.5" y="262.45" width="805.07" height="87.13" fill="none"/>
-<text x="643.03" y="321.65" text-anchor="middle" xml:space="preserve" font-family="&quot;微软雅黑&quot;, sans-serif" font-size="64" fill="#FFFFFF" font-weight="bold" letter-spacing="4" data-slot="TITLE"><tspan fill="#FFFFFF" font-size="64" font-weight="bold" letter-spacing="4">{{TITLE}}</tspan></text>
+<text x="643.03" y="321.65" text-anchor="middle" xml:space="preserve" font-family="&quot;微软雅黑&quot;, sans-serif" font-size="64" fill="#FFFFFF" font-weight="bold" letter-spacing="4" data-slot="TITLE" data-pptx-textbox="true" data-pptx-box-x="123.03" data-pptx-box-y="254.45" data-pptx-box-w="1040" data-pptx-box-h="99.2"><tspan fill="#FFFFFF" font-size="64" font-weight="bold" letter-spacing="4">{{TITLE}}</tspan></text>
 </g>
 <g id="shape-68" data-name="文本框 67">
 <rect x="180.96" y="347.62" width="918.08" height="40.53" fill="none"/>
-<text x="640" y="370.55" text-anchor="middle" xml:space="preserve" font-family="&quot;微软雅黑 Light&quot;, sans-serif" font-size="21.33" fill="#FFFFFF" letter-spacing="4" data-slot="SUBTITLE"><tspan fill="#FFFFFF" font-size="21.33" letter-spacing="4">{{SUBTITLE}}</tspan></text>
+<text x="640" y="370.55" text-anchor="middle" xml:space="preserve" font-family="&quot;微软雅黑 Light&quot;, sans-serif" font-size="21.33" fill="#FFFFFF" letter-spacing="4" data-slot="SUBTITLE" data-pptx-textbox="true" data-pptx-box-x="190" data-pptx-box-y="348.15" data-pptx-box-w="900" data-pptx-box-h="36"><tspan fill="#FFFFFF" font-size="21.33" letter-spacing="4">{{SUBTITLE}}</tspan></text>
 </g>
 <g id="shape-214" data-name="组合 213">
 <g id="shape-106" data-name="任意多边形: 形状 105">
@@ -165,19 +165,19 @@
 </g>
 </g>
 <g id="cover-metadata-icons" data-name="Lucide metadata icons">
-<use data-icon="lucide/user-round" x="176.5" y="555.5" width="32" height="32" fill="#8B0012" stroke-width="2.25"/>
-<use data-icon="lucide/graduation-cap" x="526.5" y="555.5" width="32" height="32" fill="#8B0012" stroke-width="2.25"/>
-<use data-icon="lucide/calendar-days" x="894.5" y="555.5" width="32" height="32" fill="#8B0012" stroke-width="2.25"/>
+<use data-icon="lucide/user-round" x="122" y="556" width="30" height="30" fill="#8B0012" stroke-width="2.25"/>
+<use data-icon="lucide/graduation-cap" x="488" y="556" width="30" height="30" fill="#8B0012" stroke-width="2.25"/>
+<use data-icon="lucide/calendar-days" x="862" y="556" width="30" height="30" fill="#8B0012" stroke-width="2.25"/>
 </g>
 <g id="cover-metadata-presenter" data-name="文本框 13">
-<rect x="213.87" y="552.45" width="163.2" height="38.67" fill="none"/>
-<text x="223.47" y="577.65" text-anchor="start" xml:space="preserve" font-family="&quot;微软雅黑&quot;, sans-serif" font-size="24" fill="#000000"><tspan fill="#000000" font-size="24">答辩人：</tspan><tspan fill="#000000" font-size="24" data-slot="PRESENTER">{{PRESENTER}}</tspan></text>
+<rect x="164" y="552" width="270" height="38" fill="none"/>
+<text x="164" y="578" text-anchor="start" xml:space="preserve" font-family="&quot;微软雅黑&quot;, sans-serif" font-size="22" fill="#000000" data-pptx-textbox="true" data-pptx-box-x="164" data-pptx-box-y="552" data-pptx-box-w="270" data-pptx-box-h="38" data-pptx-valign="middle"><tspan fill="#000000" font-size="22">答辩人：</tspan><tspan fill="#000000" font-size="22" data-slot="PRESENTER">{{PRESENTER}}</tspan></text>
 </g>
 <g id="cover-metadata-advisor" data-name="文本框 14">
-<rect x="565.01" y="552.45" width="187.2" height="38.67" fill="none"/>
-<text x="574.61" y="577.65" text-anchor="start" xml:space="preserve" font-family="&quot;微软雅黑&quot;, sans-serif" font-size="24" fill="#000000"><tspan fill="#000000" font-size="24">指导老师：</tspan><tspan fill="#000000" font-size="24" data-slot="ADVISOR">{{ADVISOR}}</tspan></text>
+<rect x="530" y="552" width="315" height="38" fill="none"/>
+<text x="530" y="578" text-anchor="start" xml:space="preserve" font-family="&quot;微软雅黑&quot;, sans-serif" font-size="22" fill="#000000" data-pptx-textbox="true" data-pptx-box-x="530" data-pptx-box-y="552" data-pptx-box-w="315" data-pptx-box-h="38" data-pptx-valign="middle"><tspan fill="#000000" font-size="22">指导老师：</tspan><tspan fill="#000000" font-size="22" data-slot="ADVISOR">{{ADVISOR}}</tspan></text>
 </g>
 <g id="cover-metadata-date" data-name="文本框 15">
-<rect x="930.39" y="552.45" width="187.51" height="38.78" fill="none"/>
-<text x="939.99" y="577.65" text-anchor="start" xml:space="preserve" font-family="&quot;微软雅黑&quot;, sans-serif" font-size="24" fill="#000000"><tspan fill="#000000" font-size="24">答辩时间：</tspan><tspan fill="#000000" font-size="24" data-slot="DATE">{{DATE}}</tspan></text>
+<rect x="904" y="552" width="315" height="38" fill="none"/>
+<text x="904" y="578" text-anchor="start" xml:space="preserve" font-family="&quot;微软雅黑&quot;, sans-serif" font-size="22" fill="#000000" data-pptx-textbox="true" data-pptx-box-x="904" data-pptx-box-y="552" data-pptx-box-w="315" data-pptx-box-h="38" data-pptx-valign="middle"><tspan fill="#000000" font-size="22">答辩时间：</tspan><tspan fill="#000000" font-size="22" data-slot="DATE">{{DATE}}</tspan></text>
 </g></svg>

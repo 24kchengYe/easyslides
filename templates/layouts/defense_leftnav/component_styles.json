@@ -9,10 +9,10 @@
     "border": "#D9C7CA",
     "text": "#111111",
     "muted": "#6B6B6B",
-    "content_area": {"x": 310, "y": 158, "width": 910, "height": 500},
+    "content_area": {"x": 310, "y": 210, "width": 910, "height": 440},
     "radius_small": 6,
     "radius_medium": 12,
-    "gap": 24
+    "gap": 32
   },
   "navigation_styles": {
     "left_navigation": {

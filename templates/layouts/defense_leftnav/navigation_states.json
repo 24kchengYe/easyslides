@@ -167,7 +167,7 @@
       "active_label": {"x": 72.54, "y": 549.57, "anchor": "start", "font_size": 26.67, "letter_spacing": 4, "box": {"x": 72.54, "y": 507.15, "width": 202, "height": 65.42, "vertical_anchor": "middle"}}
     }
   ],
-  "content_area": {"x": 310, "y": 158, "width": 910, "height": 500},
+  "content_area": {"x": 310, "y": 210, "width": 910, "height": 440},
   "colors": {
     "active_band": "#8B0012",
     "active_pointer": "#68000D",

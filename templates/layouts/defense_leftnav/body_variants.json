@@ -2,7 +2,8 @@
   "schema_version": "easyslides.body_variants.v1",
   "template_id": "defense_leftnav",
   "source_shell": "03_content.svg",
-  "content_area": {"x": 310, "y": 158, "width": 910, "height": 500},
+  "content_area": {"x": 310, "y": 210, "width": 910, "height": 440},
+  "component_spacing": {"min_gap": 32, "scope": "independent body components; internal parts of one table, card, figure, or grouped variant may touch or overlap as designed"},
   "selection_rule": "Choose one body variant after deciding the slide claim, evidence shape, and density. Do not create new shell SVG files for routine content variation.",
   "variants": [
     {

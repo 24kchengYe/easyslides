@@ -38,7 +38,9 @@ placeholders:
 | Navigation Accent | `#68000D` active ribbon fold |
 | Built-in Palettes | `wine` default display name: Academic Red, plus `academic_blue`, `academic_purple`, `academic_green` |
 | Left Navigation Width | 253.38px gray rail, with the active ribbon extending to x=291.05 |
-| Content Area | x=310, y=158, width=910, height=500; machine-readable only, not visibly stroked |
+| Content Area | x=310, y=210, width=910, height=440; machine-readable only, not visibly stroked |
+| Content Safety Gap | Minimum 66px between the key-message box bottom and `CONTENT_AREA` top; minimum 32px between independent body components |
+| Optional Brand Area | Content pages reserve the upper-right header area for a matched school emblem plus school name; non-content pages may use emblem-only placement |
 | Runtime Surface | five SVG shells, no slot-guided page catalog |
 
 Use this template for thesis defense, graduation defense, proposal defense, and research progress decks that need a compact reusable style.
@@ -55,6 +57,8 @@ Use this template for thesis defense, graduation defense, proposal defense, and 
 | `academic_green` | `#016F35` | `#014B24` | `#F1F7F4` | `#C4D8CD` | `#002B15` |
 
 Palette switching is semantic. Replace the five theme roles as a set: `primary`, `primary_dark`, `soft_surface`, `border`, and `emphasis_text`. Do not recolor the white surfaces, black body text, muted gray inactive navigation labels, or the light gray navigation rail when applying an alternate palette.
+
+Generated body content must use the template palette tokens. Do not use ad hoc gray fills such as `#E7E6E6` or `#F2F2F2` for cards, table headers, badges, flow blocks, or emphasis bands. Gray is reserved for immutable navigation chrome.
 
 ## Page Shells
 
@@ -137,6 +141,8 @@ Default section order:
 
 All generated components must stay inside `CONTENT_AREA` unless the selected shell is cover, TOC, chapter, or ending. `CONTENT_AREA` is an invisible machine-readable boundary; do not render it as a dashed or solid outline in the slide.
 
+Independent body components must keep at least 32px of visual gap from each other. Treat each card, text panel, image frame, table, matrix block, or flow-step block as one body component. Internal parts that form a single component, such as a card title strip, number badge, table header, table cells, figure caption, or grouped callout inside one variant, may touch or overlap according to the component style.
+
 ## Hard Generation Rules
 
 This section is the authoritative generation contract for `defense_leftnav`. Keep `rules.md` as a short compatibility entry point only.
@@ -144,6 +150,19 @@ This section is the authoritative generation contract for `defense_leftnav`. Kee
 - Keep the template shell roster small: `01_cover.svg`, `02_toc.svg`, `02_chapter.svg`, `03_content.svg`, and `04_ending.svg`.
 - Do not create new SVG shell files for routine content changes such as one image plus one text box, one image plus callouts, card grids, or dashed hypothesis boxes.
 - Select a `body_variants.json` entry for each content slide, then apply `component_styles.json` inside `CONTENT_AREA`.
+- Enforce `CONTENT_AREA` as hard geometry: `x=310`, `y=210`, `width=910`, `height=440`. Body content must not start in the header/key-message zone.
+- Enforce a minimum `32px` gap between independent body components. Only sub-parts of one grouped component may touch or overlap.
+- Flatten directional marker geometry before export. Do not rely on group-level rotation transforms for title or TOC triangles, because editable-native PPTX conversion may not preserve the visual direction.
+- Keep the content-page header on a fixed grid: the right-pointing title triangle and `PAGE_TITLE` text box must share the same vertical center, the title text x-position must be at least 28px to the right of the triangle's rightmost point, and `PAGE_TITLE` must use middle vertical alignment.
+- Reserve the right side of the content-page title row for optional institutional branding. When a school is known and a logo asset is available, place a 34px emblem at x=1052, y=38 and the school name to its right; keep the `PAGE_TITLE` editable box no wider than 620px so the brand slot cannot collide with the title.
+- Add a visible primary-color `header-separator` line below the title row before the key-message band.
+- Keep at least 16px vertical gap between the `header-separator` bottom and the key-message band top; the key-message text box must use middle vertical alignment.
+- Keep gray fills out of generated body content; only the fixed left navigation rail may use the template gray.
+- Keep `PAGE_NUM` centered in the red page-number square. Its editable PPT text box must match the square's x, y, width, and height, use `text-anchor="middle"`, and set `data-pptx-valign="middle"` so two-digit page numbers remain fully visible.
+- Institutional branding is optional and source-driven. Match the school from the source document, prefer `references/assets/university_emblems`, and use no logo when the school is unknown. If the school is known but absent locally, a transparent web asset may be used only with its source recorded in the project asset lock.
+- A specific school logo must never be baked into the template; the same template must be able to generate a logo-free deck or a deck branded for any matched source institution.
+- On chapter transition pages, put optional institutional branding in the upper-left area; keep other non-content page brand placements unchanged. On content pages, use emblem plus Chinese/English school name in the upper-right header slot.
+- Cover and ending metadata footers use exactly three evenly distributed groups with centers around x=260, x=640, and x=1020. Use icons from `templates/icons`, keep at least 12px visual gap between each icon and its label, and keep each editable text box inside its own column so adjacent labels cannot overlap.
 - Treat the left navigation as five semantic variants, not five duplicated SVG shells: `D01-NAV-01` through `D01-NAV-05` in `navigation_states.json`.
 - For each content slide, choose exactly one navigation variant by `ACTIVE_SECTION`, resolve its `section_ref`, and update only `nav-active-band`, `nav-active-fold`, `nav-active-pointer`, `nav-active-icon`, and `nav-active-label`.
 - Keep `nav-active-fold` free of `transform`; `nav-active-pointer.points` in `navigation_states.json` are pre-flattened final coordinates so editable-native PPTX export keeps the fold attached to the active band.
