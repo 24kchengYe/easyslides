@@ -14,7 +14,7 @@ Current real deck:
 assets/slides/work-01/slide-01.jpg
 assets/slides/work-01/slide-02.jpg
 ...
-assets/slides/work-01/slide-14.jpg
+assets/slides/work-01/slide-16.jpg
 ```
 
 Then register those paths in `slideAssets` inside `index.html`. The detail page will place the selected image exactly inside the photo screen area and use the current mock slide only as a fallback.
