@@ -75,6 +75,25 @@ class SitePublicAssetsTests(unittest.TestCase):
             self.assertIn(asset, text)
             self.assertTrue((site / asset).exists(), asset)
 
+    def test_journal_and_defense_detail_pages_use_meeting_room_scene(self):
+        text = (ROOT / "site" / "index.html").read_text(encoding="utf-8")
+
+        scene_function = re.search(
+            r"function sceneForType\(type\) \{(?P<body>.*?)\n    \}",
+            text,
+            flags=re.S,
+        )
+        self.assertIsNotNone(scene_function)
+        body = scene_function.group("body")
+
+        self.assertIn('type === "defense"', body)
+        self.assertIn('type === "journal"', body)
+        self.assertRegex(
+            body,
+            r'if \(type === "defense" \|\| type === "journal"\) return "meeting";',
+        )
+        self.assertNotRegex(body, r'type === "defense".*return "classroom"')
+
 
 if __name__ == "__main__":
     unittest.main()

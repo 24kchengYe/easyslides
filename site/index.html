@@ -2012,7 +2012,8 @@
     }
 
     function sceneForType(type) {
-      if (type === "defense" || type === "course") return "classroom";
+      if (type === "defense" || type === "journal") return "meeting";
+      if (type === "course") return "classroom";
       if (type === "proposal") return "display";
       if (type === "grant") return "meeting";
       return "seminar";
