@@ -11,13 +11,18 @@ assets/slides/work-02/slide-01.png
 Current real deck:
 
 ```text
-assets/slides/work-01/slide-01.jpg
+assets/slides/work-01/slide-01.jpg  literature_minimal
 assets/slides/work-01/slide-02.jpg
 ...
 assets/slides/work-01/slide-16.jpg
+
+assets/slides/work-02/slide-01.jpg  defense_leftnav
+assets/slides/work-02/slide-02.jpg
+...
+assets/slides/work-02/slide-29.jpg
 ```
 
-Then register those paths in `slideAssets` inside `index.html`. The detail page will place the selected image exactly inside the photo screen area and use the current mock slide only as a fallback.
+Then register those paths in `slideAssets` inside `index.html`, and add the template id as the final field of the matching `copy.*.works` item. The detail page will place the selected image exactly inside the photo screen area and use the current mock slide only as a fallback.
 
 Scene photo screen regions are defined as CSS percentages in `index.html`:
 

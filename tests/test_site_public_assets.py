@@ -50,6 +50,31 @@ class SitePublicAssetsTests(unittest.TestCase):
         self.assertIn('type="image/webp"', text)
         self.assertIn("image-set(", text)
 
+    def test_public_case_uses_attention_transformer_deck_images(self):
+        site = ROOT / "site"
+        text = (site / "index.html").read_text(encoding="utf-8")
+
+        self.assertIn("Attention Is All You Need", text)
+        self.assertIn("16 slides", text)
+        self.assertIn("literature_minimal", text)
+        for index in range(1, 17):
+            asset = f"assets/slides/work-01/slide-{index:02d}.jpg"
+            self.assertIn(asset, text)
+            self.assertTrue((site / asset).exists(), asset)
+
+    def test_public_case_uses_defense_leftnav_deck_images(self):
+        site = ROOT / "site"
+        text = (site / "index.html").read_text(encoding="utf-8")
+
+        self.assertIn("她为什么换了导师", text)
+        self.assertIn("29 slides", text)
+        self.assertIn("defense_leftnav", text)
+        self.assertIn('"defense"', text)
+        for index in range(1, 30):
+            asset = f"assets/slides/work-02/slide-{index:02d}.jpg"
+            self.assertIn(asset, text)
+            self.assertTrue((site / asset).exists(), asset)
+
 
 if __name__ == "__main__":
     unittest.main()
