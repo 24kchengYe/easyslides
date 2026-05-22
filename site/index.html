@@ -429,13 +429,15 @@
     }
 
     .work-card {
+      position: relative;
       display: grid;
-      gap: 14px;
-      min-height: 424px;
-      padding: 16px;
+      gap: 10px;
+      min-height: 360px;
+      padding: 14px;
       background:
         linear-gradient(180deg, rgba(255, 248, 229, 0.72), rgba(238, 211, 159, 0.54));
       border: 1px solid var(--line);
+      border-radius: 6px;
       box-shadow: inset 0 0 0 1px rgba(255,255,255,0.22), 0 16px 42px rgba(79, 49, 21, 0.1);
       cursor: pointer;
       transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
@@ -458,31 +460,47 @@
       text-transform: uppercase;
     }
 
-    .work-template {
+    .work-template-row {
       display: inline-flex;
       align-items: center;
       gap: 8px;
       width: fit-content;
-      padding: 5px 9px;
-      border: 1px solid rgba(118, 70, 26, 0.2);
-      background: rgba(255, 253, 246, 0.72);
       color: var(--muted);
-      font-size: 11px;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
+      font-size: 12px;
     }
 
-    .work-template code {
-      color: var(--primary);
+    .work-template-label {
+      letter-spacing: 0.08em;
+    }
+
+    .work-template-tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 5px 9px;
+      border: 1px solid rgba(118, 70, 26, 0.2);
+      border-radius: 4px;
+      background: rgba(255, 253, 246, 0.72);
+      cursor: pointer;
+      color: var(--muted);
       font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
       font-size: 11px;
       letter-spacing: 0;
-      text-transform: none;
+      line-height: 1.2;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.48);
+      transition: background 160ms ease, border-color 160ms ease, color 160ms ease;
+    }
+
+    .work-template-tag:hover,
+    .work-template-tag:focus-visible {
+      background: rgba(255, 246, 221, 0.96);
+      border-color: rgba(118, 70, 26, 0.42);
+      color: var(--ink);
+      outline: none;
     }
 
     .slide-preview {
       position: relative;
-      aspect-ratio: 16 / 10;
+      aspect-ratio: 16 / 9;
       overflow: hidden;
       border: 1px solid rgba(118, 70, 26, 0.22);
       background: #fffdf6;
@@ -582,15 +600,23 @@
 
     .work-card h3 {
       margin: 0;
-      font-size: 29px;
+      font-size: 27px;
       line-height: 1.08;
     }
 
     .work-card p {
       margin: 0;
       color: var(--muted);
-      line-height: 1.7;
+      line-height: 1.58;
       font-size: 14px;
+    }
+
+    .work-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-top: auto;
     }
 
     .enter-link {
@@ -598,8 +624,7 @@
       align-items: center;
       justify-content: center;
       width: fit-content;
-      min-height: 38px;
-      margin-top: auto;
+      min-height: 36px;
       padding: 0 14px;
       border: 1px solid var(--line-strong);
       border-radius: 999px;
@@ -607,6 +632,15 @@
       font-size: 13px;
       background: rgba(255, 246, 221, 0.36);
       box-shadow: inset 0 1px 0 rgba(255,255,255,0.42);
+    }
+
+    .work-page-count {
+      color: rgba(69, 43, 23, 0.72);
+      font-family: var(--font-latin);
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      line-height: 36px;
+      white-space: nowrap;
     }
 
     .detail {
@@ -1708,7 +1742,7 @@
       }
 
       .work-card {
-        min-height: 360px;
+        min-height: 320px;
       }
 
       .detail-stage {
@@ -1912,8 +1946,8 @@
         slideKicker: "第 04 页 / 问题",
         slideTitle: "Transformer 论文精读展示",
         works: [
-          ["journal", "Real deck", "16 页", "Attention Is All You Need", "基于 NIPS 2017 经典 Transformer 论文的文献汇报样例，已接入真实导出的 PPT 页面。", "组会汇报", "literature_minimal"],
-          ["defense", "Real deck", "29 页", "她为什么换了导师", "基于学位论文《她为什么换了导师》的答辩 PPT 样例，使用左侧导航答辩模板并接入真实 PPT 导出页面。", "答辩", "defense_leftnav"]
+          ["journal", "组会汇报", "16 页", "Attention Is All You Need", "基于 NIPS 2017 经典 Transformer 论文的文献汇报样例，已接入真实导出的 PPT 页面。", "组会汇报", "literature_minimal"],
+          ["defense", "答辩", "29 页", "她为什么换了导师", "基于学位论文《她为什么换了导师》的答辩 PPT 样例，使用左侧导航答辩模板并接入真实 PPT 导出页面。", "答辩", "defense_leftnav"]
         ],
       },
       en: {
@@ -1938,8 +1972,8 @@
         slideKicker: "Slide 04 / Problem",
         slideTitle: "Transformer paper reading deck.",
         works: [
-          ["journal", "Real deck", "16 slides", "Attention Is All You Need", "A real exported literature-report deck based on the NIPS 2017 Transformer paper, placed inside presentation scenes.", "Journal Club", "literature_minimal"],
-          ["defense", "Real deck", "29 slides", "Why She Changed Advisor", "A real exported thesis-defense deck based on the dissertation, built with the left-navigation defense template.", "Defense", "defense_leftnav"]
+          ["journal", "Journal Club", "16 slides", "Attention Is All You Need", "A real exported literature-report deck based on the NIPS 2017 Transformer paper, placed inside presentation scenes.", "Journal Club", "literature_minimal"],
+          ["defense", "Defense", "29 slides", "Why She Changed Advisor", "A real exported thesis-defense deck based on the dissertation, built with the left-navigation defense template.", "Defense", "defense_leftnav"]
         ],
       }
     };
@@ -1948,6 +1982,7 @@
     let activeWorkIndex = 0;
     let activeSlideIndex = 0;
     let activeSceneId = "seminar";
+    let activeTemplateFilter = "";
 
     const slideAssets = {
       0: [
@@ -2035,6 +2070,7 @@
       grid.innerHTML = "";
       copy[currentLang].works.forEach((work, index) => {
         if (filter !== "all" && work[0] !== filter) return;
+        if (activeTemplateFilter && (work[6] || "custom") !== activeTemplateFilter) return;
         const card = document.createElement("article");
         card.className = "work-card";
         card.tabIndex = 0;
@@ -2042,8 +2078,10 @@
         const cover = images[0] || scenePhotos[sceneForType(work[0])];
         const previewClass = images.length ? "has-slide" : "has-scene";
         card.innerHTML = `
-          <div class="work-meta"><span>${work[1]}</span><span>${work[2]}</span></div>
-          <div class="work-template"><span>${t("templateLabel")}</span><code>${work[6] || "custom"}</code></div>
+          <div class="work-template-row">
+            <span class="work-template-label">${t("templateLabel")}</span>
+            <button class="work-template-tag" type="button" data-template="${work[6] || "custom"}">${work[6] || "custom"}</button>
+          </div>
           <div class="slide-preview ${previewClass}">
             <img class="preview-image" src="${cover}" alt="">
           </div>
@@ -2051,14 +2089,30 @@
             <h3>${work[3]}</h3>
             <p>${work[4]}</p>
           </div>
-          <span class="enter-link">${t("enter")}</span>
+          <div class="work-card-footer">
+            <span class="enter-link">${t("enter")}</span>
+            <span class="work-page-count">${work[2]}</span>
+          </div>
         `;
         card.addEventListener("click", () => openDetail(index));
         card.addEventListener("keydown", (event) => {
+          if (event.target !== card) return;
           if (event.key === "Enter") openDetail(index);
+        });
+        card.querySelector(".work-template-tag").addEventListener("click", (event) => {
+          event.stopPropagation();
+          showTemplateGroup(event.currentTarget.dataset.template);
         });
         grid.appendChild(card);
       });
+    }
+
+    function showTemplateGroup(templateName) {
+      activeTemplateFilter = templateName;
+      document.querySelectorAll(".filter-tabs button").forEach((item) => item.classList.remove("active"));
+      const allButton = document.querySelector('.filter-tabs button[data-filter="all"]');
+      if (allButton) allButton.classList.add("active");
+      renderWorks("all");
     }
 
     function openDetail(index) {
@@ -2132,7 +2186,7 @@
       const detailScenario = document.querySelector("#detailScenario");
       const detailTitle = document.querySelector("#detailTitle");
       const detailDescription = document.querySelector("#detailDescription");
-      if (detailScenario) detailScenario.textContent = `${work[1]} / ${work[5]} / ${work[6] || "custom"}`;
+      if (detailScenario) detailScenario.textContent = `${work[5]} / ${work[6] || "custom"}`;
       if (detailTitle) detailTitle.textContent = work[3];
       if (detailDescription) detailDescription.textContent = work[4];
       projectedSlide.classList.toggle("has-real-slide", hasRealSlide);
@@ -2155,6 +2209,7 @@
 
     document.querySelectorAll(".filter-tabs button").forEach((button) => {
       button.addEventListener("click", () => {
+        activeTemplateFilter = "";
         document.querySelectorAll(".filter-tabs button").forEach((item) => item.classList.remove("active"));
         button.classList.add("active");
         renderWorks(button.dataset.filter);
