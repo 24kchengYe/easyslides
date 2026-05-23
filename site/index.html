@@ -621,23 +621,45 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 16px;
+      gap: 10px;
       margin-top: auto;
     }
 
-    .enter-link {
+    .work-card-actions {
+      display: inline-flex;
+      align-items: center;
+      flex: 1 1 auto;
+      flex-wrap: nowrap;
+      gap: 6px;
+      min-width: 0;
+    }
+
+    .enter-link,
+    .download-link {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       width: fit-content;
       min-height: 36px;
-      padding: 0 14px;
+      padding: 0 10px;
       border: 1px solid var(--line-strong);
       border-radius: 999px;
       color: var(--ink);
-      font-size: 13px;
+      font-size: 12px;
+      white-space: nowrap;
+      text-decoration: none;
       background: rgba(255, 246, 221, 0.36);
       box-shadow: inset 0 1px 0 rgba(255,255,255,0.42);
+    }
+
+    .download-link {
+      background: rgba(255, 252, 241, 0.34);
+      color: rgba(54, 34, 19, 0.86);
+    }
+
+    .download-link:hover {
+      background: rgba(255, 248, 228, 0.72);
+      border-color: rgba(94, 55, 23, 0.46);
     }
 
     .work-page-count {
@@ -646,6 +668,7 @@
       font-size: 13px;
       letter-spacing: 0.08em;
       line-height: 36px;
+      flex-shrink: 0;
       white-space: nowrap;
     }
 
@@ -1946,12 +1969,13 @@
         filterGrant: "基金申请",
         catalogNote: "让科研成果更快被看见",
         enter: "进入大屏展示",
+        downloadPptx: "下载.pptx文件",
         templateLabel: "模板",
         slideKicker: "第 04 页 / 问题",
         slideTitle: "Transformer 论文精读展示",
         works: [
-          ["journal", "组会汇报", "16 页", "Attention Is All You Need", "基于 NIPS 2017 经典 Transformer 论文的文献汇报样例，已接入真实导出的 PPT 页面。", "组会汇报", "literature_minimal"],
-          ["defense", "答辩", "29 页", "她为什么换了导师", "基于学位论文《她为什么换了导师》的答辩 PPT 样例，使用左侧导航答辩模板并接入真实 PPT 导出页面。", "答辩", "defense_leftnav"]
+          ["journal", "组会汇报", "16 页", "Attention Is All You Need", "基于 NIPS 2017 经典 Transformer 论文的文献汇报样例，已接入真实导出的 PPT 页面。", "组会汇报", "literature_minimal", "assets/decks/attention-transformer-literature.pptx"],
+          ["defense", "答辩", "29 页", "她为什么换了导师", "基于学位论文《她为什么换了导师》的答辩 PPT 样例，使用左侧导航答辩模板并接入真实 PPT 导出页面。", "答辩", "defense_leftnav", "assets/decks/she-why-changed-advisor-defense.pptx"]
         ],
       },
       en: {
@@ -1971,12 +1995,13 @@
         filterGrant: "Grant",
         catalogNote: "Let research results be seen faster.",
         enter: "Enter big screen",
+        downloadPptx: "Download .pptx",
         templateLabel: "Template",
         slideKicker: "Slide 04 / Problem",
         slideTitle: "Transformer paper reading deck.",
         works: [
-          ["journal", "Journal Club", "16 slides", "Attention Is All You Need", "A real exported literature-report deck based on the NIPS 2017 Transformer paper, placed inside presentation scenes.", "Journal Club", "literature_minimal"],
-          ["defense", "Defense", "29 slides", "Why She Changed Advisor", "A real exported thesis-defense deck based on the dissertation, built with the left-navigation defense template.", "Defense", "defense_leftnav"]
+          ["journal", "Journal Club", "16 slides", "Attention Is All You Need", "A real exported literature-report deck based on the NIPS 2017 Transformer paper, placed inside presentation scenes.", "Journal Club", "literature_minimal", "assets/decks/attention-transformer-literature.pptx"],
+          ["defense", "Defense", "29 slides", "Why She Changed Advisor", "A real exported thesis-defense deck based on the dissertation, built with the left-navigation defense template.", "Defense", "defense_leftnav", "assets/decks/she-why-changed-advisor-defense.pptx"]
         ],
       }
     };
@@ -2093,7 +2118,10 @@
             <p>${work[4]}</p>
           </div>
           <div class="work-card-footer">
-            <span class="enter-link">${t("enter")}</span>
+            <div class="work-card-actions">
+              <span class="enter-link">${t("enter")}</span>
+              <a class="download-link" href="${work[7]}" download>${t("downloadPptx")}</a>
+            </div>
             <span class="work-page-count">${work[2]}</span>
           </div>
         `;
@@ -2105,6 +2133,9 @@
         card.querySelector(".work-template-tag").addEventListener("click", (event) => {
           event.stopPropagation();
           showTemplateGroup(event.currentTarget.dataset.template);
+        });
+        card.querySelector(".download-link").addEventListener("click", (event) => {
+          event.stopPropagation();
         });
         grid.appendChild(card);
       });
