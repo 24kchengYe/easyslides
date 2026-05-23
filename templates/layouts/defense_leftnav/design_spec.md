@@ -40,7 +40,7 @@ placeholders:
 | Left Navigation Width | 253.38px gray rail, with the active ribbon extending to x=291.05 |
 | Content Area | x=310, y=210, width=910, height=440; machine-readable only, not visibly stroked |
 | Content Safety Gap | Minimum 66px between the key-message box bottom and `CONTENT_AREA` top; minimum 32px between independent body components |
-| Optional Brand Area | Content pages reserve the upper-right header area for a matched school emblem plus school name; non-content pages may use emblem-only placement |
+| Optional Brand Area | Content pages reserve the upper-right header area for a matched school emblem plus school name; TOC and chapter pages use upper-left emblem-only placement; cover and ending may use upper-right emblem-only placement |
 | Runtime Surface | five SVG shells, no slot-guided page catalog |
 
 Use this template for thesis defense, graduation defense, proposal defense, and research progress decks that need a compact reusable style.
@@ -161,7 +161,7 @@ This section is the authoritative generation contract for `defense_leftnav`. Kee
 - Keep `PAGE_NUM` centered in the red page-number square. Its editable PPT text box must match the square's x, y, width, and height, use `text-anchor="middle"`, and set `data-pptx-valign="middle"` so two-digit page numbers remain fully visible.
 - Institutional branding is optional and source-driven. Match the school from the source document, prefer `references/assets/university_emblems`, and use no logo when the school is unknown. If the school is known but absent locally, a transparent web asset may be used only with its source recorded in the project asset lock.
 - A specific school logo must never be baked into the template; the same template must be able to generate a logo-free deck or a deck branded for any matched source institution.
-- On chapter transition pages, put optional institutional branding in the upper-left area; keep other non-content page brand placements unchanged. On content pages, use emblem plus Chinese/English school name in the upper-right header slot.
+- On TOC and chapter transition pages, put optional institutional branding in the upper-left area; keep other non-content page brand placements unchanged, so cover and ending page branding remains in the upper-right area. On content pages, use emblem plus Chinese/English school name in the upper-right header slot.
 - Cover and ending metadata footers use exactly three evenly distributed groups with centers around x=260, x=640, and x=1020. Use icons from `templates/icons`, keep at least 12px visual gap between each icon and its label, and keep each editable text box inside its own column so adjacent labels cannot overlap.
 - Treat the left navigation as five semantic variants, not five duplicated SVG shells: `D01-NAV-01` through `D01-NAV-05` in `navigation_states.json`.
 - For each content slide, choose exactly one navigation variant by `ACTIVE_SECTION`, resolve its `section_ref`, and update only `nav-active-band`, `nav-active-fold`, `nav-active-pointer`, `nav-active-icon`, and `nav-active-label`.

@@ -123,6 +123,11 @@
       "asset": "emblem_or_horizontal_wordmark",
       "box": {"x": 54, "y": 42, "width": 178, "height": 32}
     },
+    "toc": {
+      "placement": "upper_left",
+      "asset": "emblem_or_horizontal_wordmark",
+      "box": {"x": 54, "y": 42, "width": 178, "height": 32}
+    },
     "content": {
       "placement": "upper_right_header",
       "asset": "emblem_plus_school_name",
