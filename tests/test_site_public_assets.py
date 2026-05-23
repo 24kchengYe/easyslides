@@ -11,12 +11,14 @@ class SitePublicAssetsTests(unittest.TestCase):
         site = ROOT / "site"
         checked = []
 
-        index_text = (site / "index.html").read_text(encoding="utf-8")
-        for match in re.findall(r"assets/[^\s\"'`)<>]+", index_text):
-            checked.append(match)
-            with self.subTest(path="index.html", asset=match):
-                self.assertTrue(match.isascii())
-                self.assertTrue((site / match).exists())
+        for html_path in site.glob("*.html"):
+            html_text = html_path.read_text(encoding="utf-8")
+            for match in re.findall(r"assets/[^\s\"'`)<>]+", html_text):
+                asset_path = re.split(r"[?#]", match, maxsplit=1)[0]
+                checked.append(match)
+                with self.subTest(path=html_path.name, asset=match):
+                    self.assertTrue(match.isascii())
+                    self.assertTrue((site / asset_path).exists())
 
         readme_text = (site / "assets" / "slides" / "README.md").read_text(
             encoding="utf-8"
