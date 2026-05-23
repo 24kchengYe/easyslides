@@ -28,6 +28,7 @@
       --shadow: 0 28px 70px rgba(77, 43, 17, 0.18);
       --font-sans: "HarmonyOS Sans SC", "MiSans", "PingFang SC", "Alibaba PuHuiTi", "Microsoft YaHei UI", "Microsoft YaHei", "Noto Sans SC", sans-serif;
       --font-display: "HarmonyOS Sans SC", "MiSans", "PingFang SC", "Alibaba PuHuiTi", "Source Han Sans SC", "Noto Sans SC", sans-serif;
+      --font-serif: "Source Han Serif SC", "Noto Serif CJK SC", "Noto Serif SC", "Songti SC", "SimSun", serif;
       --font-latin: "Manrope", "Avenir Next", "Segoe UI", sans-serif;
     }
 
@@ -262,6 +263,7 @@
     .home-slogan {
       margin: clamp(18px, 2vw, 28px) auto 0;
       max-width: 560px;
+      font-family: var(--font-serif);
       color: rgba(53, 34, 19, 0.82);
       font-size: clamp(20px, 2.8vw, 32px);
       line-height: 1.24;
@@ -418,8 +420,12 @@
     }
 
     .catalog-note {
+      font-family: var(--font-serif);
       color: rgba(70, 43, 22, 0.68);
-      font-size: 13px;
+      font-size: clamp(19px, 2.2vw, 30px);
+      font-weight: 700;
+      line-height: 1.25;
+      text-wrap: balance;
     }
 
     .works-grid {
@@ -1848,7 +1854,7 @@
         <p class="kicker" data-i18n="homeKicker">Golden hall research showcase</p>
         <h1 class="home-title" data-i18n="homeTitle">EasySlides</h1>
       </div>
-        <p class="home-slogan" data-i18n="homeSlogan">让科研成果更快被看见</p>
+        <p class="home-slogan" data-i18n="homeSlogan">生成最懂学术的AI PPT</p>
         <div class="hero-lower">
           <div class="stats" aria-label="Gallery stats">
             <div class="stat"><strong>2</strong><span data-i18n="statExamples">案例</span></div>
@@ -1868,11 +1874,10 @@
           <button type="button" class="active" data-filter="all" data-i18n="filterAll">全部</button>
           <button type="button" data-filter="journal" data-i18n="filterJournal">组会</button>
           <button type="button" data-filter="defense" data-i18n="filterDefense">答辩</button>
-          <button type="button" data-filter="proposal" data-i18n="filterProposal">开题</button>
           <button type="button" data-filter="course" data-i18n="filterCourse">课程展示</button>
           <button type="button" data-filter="grant" data-i18n="filterGrant">基金申请</button>
         </div>
-        <span class="catalog-note" data-i18n="catalogNote">继续往下看 EasySlides 的实例卡片。</span>
+        <span class="catalog-note" data-i18n="catalogNote">让科研成果更快被看见</span>
       </div>
 
       <div class="works-grid" id="worksGrid"></div>
@@ -1929,7 +1934,7 @@
         navDetail: "大屏展示",
         homeKicker: "Golden hall research showcase",
         homeTitle: "EasySlides",
-        homeSlogan: "让科研成果更快被看见",
+        homeSlogan: "生成最懂学术的AI PPT",
         statExamples: "案例",
         statPages: "真实页图",
         statTemplates: "汇报场景",
@@ -1937,10 +1942,9 @@
         filterAll: "全部",
         filterJournal: "组会",
         filterDefense: "答辩",
-        filterProposal: "开题",
         filterCourse: "课程展示",
         filterGrant: "基金申请",
-        catalogNote: "当前使用真实 PPT 导出图和真实场景照片。",
+        catalogNote: "让科研成果更快被看见",
         enter: "进入大屏展示",
         templateLabel: "模板",
         slideKicker: "第 04 页 / 问题",
@@ -1955,7 +1959,7 @@
         navDetail: "Big Screen",
         homeKicker: "Golden hall research showcase",
         homeTitle: "EasySlides",
-        homeSlogan: "Let research results be seen faster.",
+        homeSlogan: "Generate AI PPTs that understand academia.",
         statExamples: "Cases",
         statPages: "Pages",
         statTemplates: "Scenes",
@@ -1963,10 +1967,9 @@
         filterAll: "All",
         filterJournal: "Journal Club",
         filterDefense: "Defense",
-        filterProposal: "Proposal",
         filterCourse: "Course",
         filterGrant: "Grant",
-        catalogNote: "Built with exported PPT pages and real presentation-scene photos.",
+        catalogNote: "Let research results be seen faster.",
         enter: "Enter big screen",
         templateLabel: "Template",
         slideKicker: "Slide 04 / Problem",
