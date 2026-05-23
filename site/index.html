@@ -74,34 +74,46 @@
       backdrop-filter: blur(18px) saturate(1.1);
     }
 
+    .brand-cluster {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
     .brand {
       display: flex;
       align-items: center;
       gap: 12px;
       color: rgba(255, 240, 203, 0.88);
-      font-size: 13px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
+      font-size: 14px;
+      letter-spacing: 0.08em;
       white-space: nowrap;
+      text-decoration: none;
     }
 
-    .brand-dot {
-      width: 24px;
-      height: 24px;
-      display: grid;
-      place-items: center;
-      border: 1px solid rgba(231, 188, 97, 0.7);
-      border-radius: 50%;
+    .brand-logo {
+      width: 30px;
+      height: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 0 1px rgba(231, 188, 97, 0.38), 0 8px 20px rgba(25, 13, 5, 0.22);
       background: rgba(255, 238, 194, 0.1);
     }
 
-    .brand-dot::after {
-      content: "";
-      width: 9px;
-      height: 9px;
-      background: var(--hall-gold);
-      border-radius: 50%;
-      box-shadow: 0 0 18px rgba(247, 211, 125, 0.55);
+    .brand-divider {
+      width: 1px;
+      height: 24px;
+      background: rgba(255, 231, 177, 0.3);
+    }
+
+    .product-brand {
+      color: #fff0cb;
+      font-family: var(--font-serif);
+      font-size: 18px;
+      font-weight: 800;
+      line-height: 1;
+      text-decoration: none;
+      white-space: nowrap;
     }
 
     .top-actions {
@@ -1649,19 +1661,32 @@
         padding: 14px 18px;
         gap: 10px;
         justify-content: flex-start;
+        flex-wrap: wrap;
       }
 
       .brand {
         min-width: 0;
-        font-size: 11px;
-        letter-spacing: 0.12em;
+        font-size: 12px;
+        letter-spacing: 0.06em;
         gap: 8px;
       }
 
-      .brand-dot {
-        width: 22px;
-        height: 22px;
+      .brand-cluster {
+        gap: 8px;
+      }
+
+      .brand-logo {
+        width: 24px;
+        height: 24px;
         flex: 0 0 auto;
+      }
+
+      .brand-divider {
+        height: 20px;
+      }
+
+      .product-brand {
+        font-size: 16px;
       }
 
       .top-actions {
@@ -1857,11 +1882,18 @@
 </head>
 <body data-lang="zh" data-view="home">
   <header class="topbar">
-    <div class="brand"><span class="brand-dot"></span><span>EasySlides</span></div>
+    <div class="brand-cluster" aria-label="Brand navigation">
+      <a class="brand" href="https://www.scansci.com/" target="_blank" rel="noreferrer" aria-label="ScanSci 出品">
+        <img class="brand-logo" src="assets/brand/scansci-app-icon-64.png" alt="" aria-hidden="true">
+        <span>ScanSci 出品</span>
+      </a>
+      <span class="brand-divider" aria-hidden="true"></span>
+      <a class="product-brand" href="index.html">EasySlides</a>
+    </div>
     <div class="top-actions">
       <nav class="nav">
         <a href="#catalog" data-i18n="navCatalog">实例</a>
-        <a href="#detail" data-i18n="navDetail">大屏展示</a>
+        <a href="guide.html" data-i18n="navDetail">使用教程</a>
       </nav>
       <div class="lang-toggle" aria-label="Language switcher">
         <button type="button" data-lang="zh">中</button>
@@ -1954,7 +1986,7 @@
     const copy = {
       zh: {
         navCatalog: "实例",
-        navDetail: "大屏展示",
+        navDetail: "使用教程",
         homeKicker: "Golden hall research showcase",
         homeTitle: "EasySlides",
         homeSlogan: "生成最懂学术的AI PPT",
@@ -1980,7 +2012,7 @@
       },
       en: {
         navCatalog: "Catalog",
-        navDetail: "Big Screen",
+        navDetail: "Guide",
         homeKicker: "Golden hall research showcase",
         homeTitle: "EasySlides",
         homeSlogan: "Generate AI PPTs that understand academia.",
