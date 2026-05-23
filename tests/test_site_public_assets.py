@@ -77,6 +77,18 @@ class SitePublicAssetsTests(unittest.TestCase):
             self.assertIn(asset, text)
             self.assertTrue((site / asset).exists(), asset)
 
+    def test_public_case_uses_defense_topnav_deck_images(self):
+        site = ROOT / "site"
+        text = (site / "index.html").read_text(encoding="utf-8")
+
+        self.assertIn("她为什么换了导师（顶部导航版）", text)
+        self.assertIn("defense_topnav", text)
+        self.assertIn("assets/decks/she-why-changed-advisor-defense-topnav.pptx", text)
+        for index in range(1, 30):
+            asset = f"assets/slides/work-03/slide-{index:02d}.jpg"
+            self.assertIn(asset, text)
+            self.assertTrue((site / asset).exists(), asset)
+
     def test_journal_and_defense_detail_pages_use_meeting_room_scene(self):
         text = (ROOT / "site" / "index.html").read_text(encoding="utf-8")
 
