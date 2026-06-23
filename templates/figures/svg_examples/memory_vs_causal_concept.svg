@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <marker id="mc" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#8A8A8A"/>
+    </marker>
+  </defs>
+
+  <!-- ===== center: a vertical stack of layers (INPUT bottom, OUTPUT top) ===== -->
+  <text x="512" y="208" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="14" font-weight="700" fill="#666666">OUTPUT (top)</text>
+
+  <!-- 8 layer cells, top=output. Highlight: causal peak (mid-front, red) + memory peak (deep, blue) -->
+  <!-- layer y positions: 220,268,316,364,412,460,508,556 ; cell 150x40 -->
+  <rect x="437" y="220" width="150" height="40" rx="6" fill="#eef1f4" stroke="#bcc6cf" stroke-width="1.2"/>
+  <rect x="437" y="268" width="150" height="40" rx="6" fill="#eef1f4" stroke="#bcc6cf" stroke-width="1.2"/>
+  <!-- causal peak (mid-front) -->
+  <rect x="437" y="316" width="150" height="40" rx="6" fill="#C44E52" stroke="#a83b3f" stroke-width="1.2"/>
+  <text x="512" y="341" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="14" font-weight="700" fill="#FFFFFF">causal peak</text>
+  <rect x="437" y="364" width="150" height="40" rx="6" fill="#eef1f4" stroke="#bcc6cf" stroke-width="1.2"/>
+  <rect x="437" y="412" width="150" height="40" rx="6" fill="#eef1f4" stroke="#bcc6cf" stroke-width="1.2"/>
+  <!-- memory peak (deep) -->
+  <rect x="437" y="460" width="150" height="40" rx="6" fill="#0072B2" stroke="#005a8c" stroke-width="1.2"/>
+  <text x="512" y="485" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="14" font-weight="700" fill="#FFFFFF">memory peak</text>
+  <rect x="437" y="508" width="150" height="40" rx="6" fill="#eef1f4" stroke="#bcc6cf" stroke-width="1.2"/>
+  <rect x="437" y="556" width="150" height="40" rx="6" fill="#eef1f4" stroke="#bcc6cf" stroke-width="1.2"/>
+
+  <text x="512" y="624" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="14" font-weight="700" fill="#666666">INPUT (bottom)</text>
+
+  <!-- ===== left callout: causal peak ===== -->
+  <line x1="437" y1="336" x2="372" y2="336" stroke="#C44E52" stroke-width="2" marker-end="url(#mc)"/>
+  <rect x="70" y="300" width="296" height="92" rx="12" fill="#FBEAE8" stroke="#E8B5B2" stroke-width="1.5"/>
+  <text x="88" y="328" font-family="'Segoe UI', Arial, sans-serif" font-size="16" font-weight="700" fill="#C44E52">Causal peak (mid-front)</text>
+  <text x="88" y="352" font-family="'Segoe UI', Arial, sans-serif" font-size="14" fill="#1A1A1A">change this layer and the</text>
+  <text x="88" y="372" font-family="'Segoe UI', Arial, sans-serif" font-size="14" fill="#1A1A1A">answer moves &#8212; it is USED</text>
+
+  <!-- ===== left callout: memory peak ===== -->
+  <line x1="437" y1="480" x2="372" y2="480" stroke="#0072B2" stroke-width="2" marker-end="url(#mc)"/>
+  <rect x="70" y="444" width="296" height="92" rx="12" fill="#EAF3F8" stroke="#BFD7E6" stroke-width="1.5"/>
+  <text x="88" y="472" font-family="'Segoe UI', Arial, sans-serif" font-size="16" font-weight="700" fill="#0072B2">Memory peak (deep)</text>
+  <text x="88" y="496" font-family="'Segoe UI', Arial, sans-serif" font-size="14" fill="#1A1A1A">the fact is most readable</text>
+  <text x="88" y="516" font-family="'Segoe UI', Arial, sans-serif" font-size="14" fill="#1A1A1A">here &#8212; it is STORED</text>
+
+  <!-- ===== right: the punchline ===== -->
+  <rect x="660" y="300" width="324" height="118" rx="12" fill="#132A3E"/>
+  <text x="684" y="334" font-family="'Segoe UI', Arial, sans-serif" font-size="17" font-weight="700" fill="#FFFFFF">Stored is not used</text>
+  <text x="684" y="362" font-family="'Segoe UI', Arial, sans-serif" font-size="14" fill="#CBD8E2">The two peaks never line up:</text>
+  <text x="684" y="384" font-family="'Segoe UI', Arial, sans-serif" font-size="14" fill="#CBD8E2">the model keeps the fact in one</text>
+  <text x="684" y="404" font-family="'Segoe UI', Arial, sans-serif" font-size="14" fill="#CBD8E2">place, would use it in another.</text>
+
+  <!-- 6/6 chip -->
+  <rect x="660" y="432" width="150" height="40" rx="20" fill="#EAF3F8" stroke="#BFD7E6" stroke-width="1.2"/>
+  <text x="735" y="457" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="14" font-weight="700" fill="#0072B2">in 6 of 6 models</text>
+
+  <!-- VL note -->
+  <rect x="660" y="486" width="324" height="74" rx="12" fill="#FFF4E8" stroke="#F0CB9A" stroke-width="1.5"/>
+  <text x="684" y="514" font-family="'Segoe UI', Arial, sans-serif" font-size="15" font-weight="700" fill="#D55E00">Vision-language model</text>
+  <text x="684" y="538" font-family="'Segoe UI', Arial, sans-serif" font-size="14" fill="#1A1A1A">loses the mid causal route</text>
+  <text x="684" y="556" font-family="'Segoe UI', Arial, sans-serif" font-size="14" fill="#1A1A1A">(about 1/7 of the text model)</text>
+
+  <!-- footnote -->
+  <text x="660" y="592" font-family="'Segoe UI', Arial, sans-serif" font-size="12" font-style="italic" fill="#888888">Geva et al. 2021, 2022 (FFN as memory) . Huang &amp; Chang 2025 (causality is not decodability)</text>
+</svg>

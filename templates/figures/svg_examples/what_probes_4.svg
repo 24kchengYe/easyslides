@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <!-- 4 theory cards: PROBE INPUT / PROBE TARGET / MEASURES. cols x: 64, 366, 668, 970; w 278 h 404; y 168 -->
+
+  <!-- ===== Scaling (blue) ===== -->
+  <rect x="64" y="168" width="278" height="404" rx="11" fill="#FFFFFF" stroke="#D8DEE4" stroke-width="1.2"/>
+  <rect x="64" y="168" width="278" height="6" rx="3" fill="#0072B2"/>
+  <text x="84" y="202" font-family="'Segoe UI', Arial, sans-serif" font-size="12" font-weight="700" fill="#0072B2">THEORY 1</text>
+  <text x="84" y="226" font-family="'Segoe UI', Arial, sans-serif" font-size="18" font-weight="700" fill="#1A1A1A">Urban Scaling</text>
+  <text x="84" y="266" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="700" fill="#888888">PROBE INPUT</text>
+  <text x="84" y="288" font-family="'Segoe UI', Arial, sans-serif" font-size="14" fill="#1A1A1A">City name (real + fictional)</text>
+  <text x="84" y="316" font-family="'Segoe UI', Arial, sans-serif" font-size="14" fill="#0072B2">&#9660;</text>
+  <text x="84" y="340" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="700" fill="#888888">PROBE TARGET</text>
+  <text x="84" y="362" font-family="'Segoe UI', Arial, sans-serif" font-size="14" fill="#1A1A1A">Real log(population) / GDP</text>
+  <text x="84" y="404" font-family="'Segoe UI', Arial, sans-serif" font-size="13" fill="#1A1A1A"><tspan x="84" dy="0">No number in the name &#8212; the</tspan><tspan x="84" dy="19">model must recall the real city.</tspan></text>
+  <rect x="84" y="446" width="238" height="106" rx="8" fill="#EAF3F8"/>
+  <text x="100" y="470" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="700" fill="#0072B2">MEASURES</text>
+  <text x="100" y="492" font-family="'Segoe UI', Arial, sans-serif" font-size="14" font-weight="700" fill="#1A1A1A">Real-world recall</text>
+  <text x="100" y="516" font-family="'Segoe UI', Arial, sans-serif" font-size="12.5" fill="#1A1A1A"><tspan x="100" dy="0">Power law pop &#8594; GDP is a</tspan><tspan x="100" dy="18">true regularity (Bettencourt).</tspan></text>
+
+  <!-- ===== Distance Decay (orange) ===== -->
+  <rect x="366" y="168" width="278" height="404" rx="11" fill="#FFFFFF" stroke="#D8DEE4" stroke-width="1.2"/>
+  <rect x="366" y="168" width="278" height="6" rx="3" fill="#D55E00"/>
+  <text x="386" y="202" font-family="'Segoe UI', Arial, sans-serif" font-size="12" font-weight="700" fill="#D55E00">THEORY 2</text>
+  <text x="386" y="226" font-family="'Segoe UI', Arial, sans-serif" font-size="18" font-weight="700" fill="#1A1A1A">Distance Decay</text>
+  <text x="386" y="266" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="700" fill="#888888">PROBE INPUT</text>
+  <text x="386" y="288" font-family="'Segoe UI', Arial, sans-serif" font-size="14" fill="#1A1A1A">City name (real)</text>
+  <text x="386" y="316" font-family="'Segoe UI', Arial, sans-serif" font-size="14" fill="#D55E00">&#9660;</text>
+  <text x="386" y="340" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="700" fill="#888888">PROBE TARGET</text>
+  <text x="386" y="362" font-family="'Segoe UI', Arial, sans-serif" font-size="14" fill="#1A1A1A">Real density gradient</text>
+  <text x="386" y="404" font-family="'Segoe UI', Arial, sans-serif" font-size="13" fill="#1A1A1A"><tspan x="386" dy="0">Again only a name; the target</tspan><tspan x="386" dy="19">is a real geographic gradient.</tspan></text>
+  <rect x="386" y="446" width="238" height="106" rx="8" fill="#FFF4E8"/>
+  <text x="402" y="470" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="700" fill="#D55E00">MEASURES</text>
+  <text x="402" y="492" font-family="'Segoe UI', Arial, sans-serif" font-size="14" font-weight="700" fill="#1A1A1A">Real-world recall</text>
+  <text x="402" y="516" font-family="'Segoe UI', Arial, sans-serif" font-size="12.5" fill="#1A1A1A"><tspan x="402" dy="0">Distance&#8211;density decay is an</tspan><tspan x="402" dy="18">external, measured law.</tspan></text>
+
+  <!-- ===== Urban Vitality (green) ===== -->
+  <rect x="668" y="168" width="278" height="404" rx="11" fill="#FFFFFF" stroke="#D8DEE4" stroke-width="1.2"/>
+  <rect x="668" y="168" width="278" height="6" rx="3" fill="#009E73"/>
+  <text x="688" y="202" font-family="'Segoe UI', Arial, sans-serif" font-size="12" font-weight="700" fill="#009E73">THEORY 3</text>
+  <text x="688" y="226" font-family="'Segoe UI', Arial, sans-serif" font-size="18" font-weight="700" fill="#1A1A1A">Urban Vitality</text>
+  <text x="688" y="266" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="700" fill="#888888">PROBE INPUT</text>
+  <text x="688" y="288" font-family="'Segoe UI', Arial, sans-serif" font-size="14" fill="#1A1A1A">Form text (we write it)</text>
+  <text x="688" y="316" font-family="'Segoe UI', Arial, sans-serif" font-size="14" fill="#009E73">&#9660;</text>
+  <text x="688" y="340" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="700" fill="#888888">PROBE TARGET</text>
+  <text x="688" y="362" font-family="'Segoe UI', Arial, sans-serif" font-size="14" fill="#1A1A1A">Hand-weighted livability</text>
+  <text x="688" y="404" font-family="'Segoe UI', Arial, sans-serif" font-size="13" fill="#1A1A1A"><tspan x="688" dy="0">The text already states every</tspan><tspan x="688" dy="19">attribute; target is OUR formula.</tspan></text>
+  <rect x="688" y="446" width="238" height="106" rx="8" fill="#E3F4EE"/>
+  <text x="704" y="470" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="700" fill="#009E73">MEASURES</text>
+  <text x="704" y="492" font-family="'Segoe UI', Arial, sans-serif" font-size="14" font-weight="700" fill="#1A1A1A">Read-back of inputs</text>
+  <text x="704" y="516" font-family="'Segoe UI', Arial, sans-serif" font-size="12.5" fill="#1A1A1A"><tspan x="704" dy="0">W_JACOBS = .25 density + .30</tspan><tspan x="704" dy="18">mix + .20 block + .15 aged &#8722; .10 tall</tspan></text>
+
+  <!-- ===== Urban Perception (red) ===== -->
+  <rect x="970" y="168" width="246" height="404" rx="11" fill="#FFFFFF" stroke="#D8DEE4" stroke-width="1.2"/>
+  <rect x="970" y="168" width="246" height="6" rx="3" fill="#C44E52"/>
+  <text x="990" y="202" font-family="'Segoe UI', Arial, sans-serif" font-size="12" font-weight="700" fill="#C44E52">THEORY 4</text>
+  <text x="990" y="226" font-family="'Segoe UI', Arial, sans-serif" font-size="18" font-weight="700" fill="#1A1A1A">Urban Perception</text>
+  <text x="990" y="266" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="700" fill="#888888">PROBE INPUT</text>
+  <text x="990" y="288" font-family="'Segoe UI', Arial, sans-serif" font-size="14" fill="#1A1A1A">Street-view image</text>
+  <text x="990" y="316" font-family="'Segoe UI', Arial, sans-serif" font-size="14" fill="#C44E52">&#9660;</text>
+  <text x="990" y="340" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="700" fill="#888888">PROBE TARGET</text>
+  <text x="990" y="362" font-family="'Segoe UI', Arial, sans-serif" font-size="14" fill="#1A1A1A">6 perception scores</text>
+  <text x="990" y="404" font-family="'Segoe UI', Arial, sans-serif" font-size="13" fill="#1A1A1A"><tspan x="990" dy="0">An image, not text &#8212; we probe</tspan><tspan x="990" dy="19">the visual representation.</tspan></text>
+  <rect x="990" y="446" width="206" height="106" rx="8" fill="#FBEAE8"/>
+  <text x="1006" y="470" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5" font-weight="700" fill="#C44E52">MEASURES</text>
+  <text x="1006" y="492" font-family="'Segoe UI', Arial, sans-serif" font-size="14" font-weight="700" fill="#1A1A1A">Visual perception</text>
+  <text x="1006" y="516" font-family="'Segoe UI', Arial, sans-serif" font-size="12.5" fill="#1A1A1A"><tspan x="1006" dy="0">Place Pulse 2.0; all 6 dims</tspan><tspan x="1006" dy="18">significant (Tobler holds).</tspan></text>
+
+  <!-- bottom key strip -->
+  <rect x="64" y="594" width="1152" height="46" rx="10" fill="#132A3E"/>
+  <text x="640" y="622" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="13.5" fill="#FFFFFF"><tspan font-weight="700" fill="#9FB4C4">Key: </tspan>three symbolic theories recall real-world facts; Vitality only reads back inputs; Perception works from images.</text>
+</svg>

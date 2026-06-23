@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <!-- 2x2 grid of the four theories' PROBING (memory) results -->
+  <!-- card geometry: 2 cols x 2 rows, x: 64 / 652, y: 180 / 432; w 564 h 232 -->
+
+  <!-- Scaling (blue) top-left -->
+  <rect x="64" y="180" width="564" height="232" rx="12" fill="#FFFFFF" stroke="#D8DEE4" stroke-width="1.3"/>
+  <rect x="64" y="180" width="564" height="8" rx="4" fill="#0072B2"/>
+  <text x="88" y="222" font-family="'Segoe UI', Arial, sans-serif" font-size="19" font-weight="700" fill="#0072B2">Urban Scaling</text>
+  <text x="88" y="252" font-family="'Segoe UI', Arial, sans-serif" font-size="14" fill="#666666">probe city name &#8594; real population / GDP</text>
+  <text x="88" y="300" font-family="'Segoe UI', Arial, sans-serif" font-size="34" font-weight="700" fill="#1A1A1A">R&#178; high, deep layers</text>
+  <text x="88" y="338" font-family="'Segoe UI', Arial, sans-serif" font-size="14" fill="#1A1A1A">the real size is decodable from the hidden state,</text>
+  <text x="88" y="358" font-family="'Segoe UI', Arial, sans-serif" font-size="14" fill="#1A1A1A">strongest in the deep "memory" layers</text>
+  <rect x="88" y="372" width="150" height="26" rx="13" fill="#EAF3F8"/>
+  <text x="163" y="390" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="13" font-weight="700" fill="#0072B2">stored</text>
+
+  <!-- Distance Decay (orange) top-right -->
+  <rect x="652" y="180" width="564" height="232" rx="12" fill="#FFFFFF" stroke="#D8DEE4" stroke-width="1.3"/>
+  <rect x="652" y="180" width="564" height="8" rx="4" fill="#D55E00"/>
+  <text x="676" y="222" font-family="'Segoe UI', Arial, sans-serif" font-size="19" font-weight="700" fill="#D55E00">Distance Decay</text>
+  <text x="676" y="252" font-family="'Segoe UI', Arial, sans-serif" font-size="14" fill="#666666">probe city name &#8594; real density gradient</text>
+  <text x="676" y="300" font-family="'Segoe UI', Arial, sans-serif" font-size="34" font-weight="700" fill="#1A1A1A">R&#178; = 0.46</text>
+  <text x="676" y="338" font-family="'Segoe UI', Arial, sans-serif" font-size="14" fill="#1A1A1A">size-linked density is decodable, but the theory-</text>
+  <text x="676" y="358" font-family="'Segoe UI', Arial, sans-serif" font-size="14" fill="#1A1A1A">critical steepness (alpha) is not encoded</text>
+  <rect x="676" y="372" width="232" height="26" rx="13" fill="#FFF4E8"/>
+  <text x="792" y="390" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="13" font-weight="700" fill="#D55E00">partly stored (size, not form)</text>
+
+  <!-- Urban Vitality (green) bottom-left -->
+  <rect x="64" y="432" width="564" height="232" rx="12" fill="#FFFFFF" stroke="#D8DEE4" stroke-width="1.3"/>
+  <rect x="64" y="432" width="564" height="8" rx="4" fill="#009E73"/>
+  <text x="88" y="474" font-family="'Segoe UI', Arial, sans-serif" font-size="19" font-weight="700" fill="#009E73">Urban Vitality</text>
+  <text x="88" y="504" font-family="'Segoe UI', Arial, sans-serif" font-size="14" fill="#666666">probe form description &#8594; livability composite</text>
+  <text x="88" y="552" font-family="'Segoe UI', Arial, sans-serif" font-size="34" font-weight="700" fill="#1A1A1A">R&#178; = 0.88</text>
+  <text x="88" y="590" font-family="'Segoe UI', Arial, sans-serif" font-size="14" fill="#1A1A1A">all five Jacobs attributes are read back from the</text>
+  <text x="88" y="610" font-family="'Segoe UI', Arial, sans-serif" font-size="14" fill="#1A1A1A">early layers (these were written into the prompt)</text>
+  <rect x="88" y="624" width="200" height="26" rx="13" fill="#E3F4EE"/>
+  <text x="188" y="642" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="13" font-weight="700" fill="#009E73">read back (not recall)</text>
+
+  <!-- Urban Perception (red) bottom-right -->
+  <rect x="652" y="432" width="564" height="232" rx="12" fill="#FFFFFF" stroke="#D8DEE4" stroke-width="1.3"/>
+  <rect x="652" y="432" width="564" height="8" rx="4" fill="#C44E52"/>
+  <text x="676" y="474" font-family="'Segoe UI', Arial, sans-serif" font-size="19" font-weight="700" fill="#C44E52">Urban Perception</text>
+  <text x="676" y="504" font-family="'Segoe UI', Arial, sans-serif" font-size="14" fill="#666666">probe street-view image &#8594; 6 perception scores</text>
+  <text x="676" y="552" font-family="'Segoe UI', Arial, sans-serif" font-size="34" font-weight="700" fill="#1A1A1A">all 6 significant</text>
+  <text x="676" y="590" font-family="'Segoe UI', Arial, sans-serif" font-size="14" fill="#1A1A1A">Safety 0.29 ... Boring 0.09 (perm p = 0.001);</text>
+  <text x="676" y="610" font-family="'Segoe UI', Arial, sans-serif" font-size="14" fill="#1A1A1A">nearby streets rate alike (Moran's I &gt; 0, Tobler)</text>
+  <rect x="676" y="624" width="150" height="26" rx="13" fill="#FBEAE8"/>
+  <text x="751" y="642" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="13" font-weight="700" fill="#C44E52">stored</text>
+</svg>

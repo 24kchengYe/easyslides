@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <marker id="pg" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#8A8A8A"/>
+    </marker>
+    <marker id="pr" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#C44E52"/>
+    </marker>
+  </defs>
+
+  <!-- ============ TOP: one shared SYMBOLIC probe flow (Scaling / Decay / Vitality) ============ -->
+  <text x="64" y="206" font-family="'Segoe UI', Arial, sans-serif" font-size="18" font-weight="700" fill="#1A1A1A">Symbolic theories share one probe flow</text>
+  <text x="64" y="230" font-family="'Segoe UI', Arial, sans-serif" font-size="14" fill="#666666">Scaling, Distance Decay and Vitality use the same steps; only the input text and the target ruler differ</text>
+
+  <!-- step boxes -->
+  <rect x="64" y="252" width="246" height="104" rx="12" fill="#F4F6F8" stroke="#D8DEE4" stroke-width="1.4"/>
+  <text x="187" y="282" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="16" font-weight="700" fill="#1A1A1A">Text input</text>
+  <text x="187" y="308" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="13" fill="#1A1A1A">a city name, or a</text>
+  <text x="187" y="328" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="13" fill="#1A1A1A">form description</text>
+
+  <line x1="310" y1="304" x2="392" y2="304" stroke="#8A8A8A" stroke-width="2.4" marker-end="url(#pg)"/>
+
+  <rect x="392" y="252" width="246" height="104" rx="12" fill="#eef1f4" stroke="#bcc6cf" stroke-width="1.4"/>
+  <text x="515" y="282" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="16" font-weight="700" fill="#1A1A1A">Internal state h</text>
+  <text x="515" y="308" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="13" fill="#1A1A1A">read the hidden</text>
+  <text x="515" y="328" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="13" fill="#1A1A1A">activations at a layer</text>
+
+  <line x1="638" y1="304" x2="720" y2="304" stroke="#8A8A8A" stroke-width="2.4" marker-end="url(#pg)"/>
+  <text x="679" y="292" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="13" font-style="italic" fill="#666666">probe w&#183;h</text>
+
+  <rect x="720" y="252" width="246" height="104" rx="12" fill="#F4F6F8" stroke="#D8DEE4" stroke-width="1.4"/>
+  <text x="843" y="282" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="16" font-weight="700" fill="#1A1A1A">Target ruler</text>
+  <text x="843" y="308" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="13" fill="#1A1A1A">an external value;</text>
+  <text x="843" y="328" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="13" fill="#1A1A1A">high R&#178; = encoded</text>
+
+  <!-- the only difference: input/target per theory + recall vs read-back -->
+  <rect x="996" y="252" width="220" height="104" rx="12" fill="#FFFFFF" stroke="#D8DEE4" stroke-width="1.2"/>
+  <text x="1016" y="278" font-family="'Segoe UI', Arial, sans-serif" font-size="12.5" font-weight="700" fill="#0072B2">Scaling / Decay &#8594; real number</text>
+  <text x="1016" y="298" font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="#1A1A1A">model must RECALL it from training</text>
+  <text x="1016" y="324" font-family="'Segoe UI', Arial, sans-serif" font-size="12.5" font-weight="700" fill="#009E73">Vitality &#8594; our weighted score</text>
+  <text x="1016" y="344" font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="#1A1A1A">model only READS BACK the inputs</text>
+
+  <!-- caption strip under the shared flow -->
+  <rect x="64" y="372" width="902" height="40" rx="8" fill="#EAF3F8"/>
+  <text x="84" y="397" font-family="'Segoe UI', Arial, sans-serif" font-size="13.5" fill="#1A1A1A"><tspan font-weight="700" fill="#0072B2">Same flow, different ruler: </tspan>only the target changes &#8212; a real-world fact to recall, or an attribute we already supplied.</text>
+
+  <!-- divider line -->
+  <line x1="64" y1="448" x2="1216" y2="448" stroke="#E0E4E8" stroke-width="1.4"/>
+
+  <!-- ============ BOTTOM: Perception probe flow (different: image input) ============ -->
+  <text x="64" y="490" font-family="'Segoe UI', Arial, sans-serif" font-size="18" font-weight="700" fill="#C44E52">Perception uses a different flow: the input is an image</text>
+  <text x="64" y="514" font-family="'Segoe UI', Arial, sans-serif" font-size="14" fill="#666666">no city name and no numbers in text; the model sees a street-view photo and we probe its visual representation</text>
+
+  <rect x="64" y="536" width="246" height="104" rx="12" fill="#FBEAE8" stroke="#E8B5B2" stroke-width="1.4"/>
+  <text x="187" y="566" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="16" font-weight="700" fill="#C44E52">Street-view image</text>
+  <text x="187" y="592" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="13" fill="#1A1A1A">a photo, not text</text>
+  <text x="187" y="612" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="13" fill="#1A1A1A">(Place Pulse 2.0)</text>
+
+  <line x1="310" y1="588" x2="392" y2="588" stroke="#C44E52" stroke-width="2.4" marker-end="url(#pr)"/>
+
+  <rect x="392" y="536" width="246" height="104" rx="12" fill="#eef1f4" stroke="#bcc6cf" stroke-width="1.4"/>
+  <text x="515" y="566" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="16" font-weight="700" fill="#1A1A1A">VL vision layers</text>
+  <text x="515" y="592" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="13" fill="#1A1A1A">read the visual</text>
+  <text x="515" y="612" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="13" fill="#1A1A1A">representation</text>
+
+  <line x1="638" y1="588" x2="720" y2="588" stroke="#8A8A8A" stroke-width="2.4" marker-end="url(#pg)"/>
+  <text x="679" y="576" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="13" font-style="italic" fill="#666666">probe w&#183;h</text>
+
+  <rect x="720" y="536" width="246" height="104" rx="12" fill="#FBEAE8" stroke="#E8B5B2" stroke-width="1.4"/>
+  <text x="843" y="566" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="16" font-weight="700" fill="#C44E52">6 perception scores</text>
+  <text x="843" y="592" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="13" fill="#1A1A1A">safe, lively, beautiful,</text>
+  <text x="843" y="612" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="13" fill="#1A1A1A">wealthy, boring, depressing</text>
+
+  <rect x="996" y="558" width="220" height="60" rx="12" fill="#C44E52"/>
+  <text x="1106" y="584" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="13" font-weight="700" fill="#FFFFFF">all 6 recovered</text>
+  <text x="1106" y="604" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="12.5" fill="#FFFFFF">(perm p = 0.001)</text>
+</svg>

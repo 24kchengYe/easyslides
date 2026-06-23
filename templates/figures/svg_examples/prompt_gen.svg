@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <!-- 4 theory prompt cards. cols x: 64, 366, 668, 970 ; w 278 (Perception 246) ; y 168 ; card h 356 -->
+
+  <!-- ===== card 1: Scaling (blue) ===== -->
+  <rect x="64" y="168" width="278" height="356" rx="10" fill="#FFFFFF" stroke="#D8DEE4" stroke-width="1.2"/>
+  <rect x="64" y="168" width="278" height="40" rx="10" fill="#0072B2"/>
+  <rect x="64" y="188" width="278" height="20" fill="#0072B2"/>
+  <text x="80" y="194" font-family="'Segoe UI', Arial, sans-serif" font-size="15" font-weight="700" fill="#FFFFFF">Scaling Law prompt</text>
+  <rect x="80" y="222" width="246" height="216" rx="6" fill="#F4F6F8"/>
+  <text x="94" y="244" font-family="Consolas, 'Courier New', monospace" font-size="12.5" fill="#1A1A1A">Generate 100 cities.</text>
+  <text x="94" y="263" font-family="Consolas, 'Courier New', monospace" font-size="12.5" fill="#1A1A1A">Format each line as:</text>
+  <text x="94" y="285" font-family="Consolas, 'Courier New', monospace" font-size="12.5" font-weight="700" fill="#0072B2">CityName, Population,</text>
+  <text x="94" y="302" font-family="Consolas, 'Courier New', monospace" font-size="12.5" font-weight="700" fill="#0072B2">Infrastructure, GDP</text>
+  <text x="94" y="324" font-family="Consolas, 'Courier New', monospace" font-size="12.5" fill="#1A1A1A">- Infrastructure: road</text>
+  <text x="94" y="341" font-family="Consolas, 'Courier New', monospace" font-size="12.5" fill="#1A1A1A">  miles</text>
+  <text x="94" y="363" font-family="Consolas, 'Courier New', monospace" font-size="12.5" fill="#1A1A1A">- GDP: annual output</text>
+  <text x="94" y="392" font-family="Consolas, 'Courier New', monospace" font-size="12.5" fill="#1A1A1A">Output exactly 100</text>
+  <text x="94" y="409" font-family="Consolas, 'Courier New', monospace" font-size="12.5" fill="#1A1A1A">lines, no extra text.</text>
+  <text x="80" y="470" font-family="'Segoe UI', Arial, sans-serif" font-size="14" font-weight="700" fill="#0072B2">Different cities</text>
+  <text x="80" y="492" font-family="'Segoe UI', Arial, sans-serif" font-size="13" fill="#1A1A1A">tests power-law Y = a &#183; N^&#946;</text>
+
+  <!-- ===== card 2: Decay (orange) ===== -->
+  <rect x="366" y="168" width="278" height="356" rx="10" fill="#FFFFFF" stroke="#D8DEE4" stroke-width="1.2"/>
+  <rect x="366" y="168" width="278" height="40" rx="10" fill="#D55E00"/>
+  <rect x="366" y="188" width="278" height="20" fill="#D55E00"/>
+  <text x="382" y="194" font-family="'Segoe UI', Arial, sans-serif" font-size="15" font-weight="700" fill="#FFFFFF">Distance Decay prompt</text>
+  <rect x="382" y="222" width="246" height="216" rx="6" fill="#F4F6F8"/>
+  <text x="396" y="244" font-family="Consolas, 'Courier New', monospace" font-size="12.5" fill="#1A1A1A">Generate 100</text>
+  <text x="396" y="263" font-family="Consolas, 'Courier New', monospace" font-size="12.5" fill="#1A1A1A">concentric circles,</text>
+  <text x="396" y="282" font-family="Consolas, 'Courier New', monospace" font-size="12.5" fill="#1A1A1A">centre to edge.</text>
+  <text x="396" y="304" font-family="Consolas, 'Courier New', monospace" font-size="12.5" font-weight="700" fill="#D55E00">Circle i, Population</text>
+  <text x="396" y="321" font-family="Consolas, 'Courier New', monospace" font-size="12.5" font-weight="700" fill="#D55E00">Density, Land Density</text>
+  <text x="396" y="343" font-family="Consolas, 'Courier New', monospace" font-size="12.5" fill="#1A1A1A">- Land Density:</text>
+  <text x="396" y="360" font-family="Consolas, 'Courier New', monospace" font-size="12.5" fill="#1A1A1A">  impervious / land</text>
+  <text x="396" y="392" font-family="Consolas, 'Courier New', monospace" font-size="12.5" fill="#1A1A1A">Output exactly 100</text>
+  <text x="396" y="409" font-family="Consolas, 'Courier New', monospace" font-size="12.5" fill="#1A1A1A">lines, no extra text.</text>
+  <text x="382" y="470" font-family="'Segoe UI', Arial, sans-serif" font-size="14" font-weight="700" fill="#D55E00">Different circles</text>
+  <text x="382" y="492" font-family="'Segoe UI', Arial, sans-serif" font-size="13" fill="#1A1A1A">tests inverse-S decay</text>
+
+  <!-- ===== card 3: Vitality (green) ===== -->
+  <rect x="668" y="168" width="278" height="356" rx="10" fill="#FFFFFF" stroke="#D8DEE4" stroke-width="1.2"/>
+  <rect x="668" y="168" width="278" height="40" rx="10" fill="#009E73"/>
+  <rect x="668" y="188" width="278" height="20" fill="#009E73"/>
+  <text x="684" y="194" font-family="'Segoe UI', Arial, sans-serif" font-size="15" font-weight="700" fill="#FFFFFF">Urban Vitality prompt</text>
+  <rect x="684" y="222" width="246" height="216" rx="6" fill="#F4F6F8"/>
+  <text x="698" y="246" font-family="Consolas, 'Courier New', monospace" font-size="12.5" fill="#1A1A1A">You are a resident.</text>
+  <text x="698" y="265" font-family="Consolas, 'Courier New', monospace" font-size="12.5" fill="#1A1A1A">Score each block 0-1</text>
+  <text x="698" y="284" font-family="Consolas, 'Courier New', monospace" font-size="12.5" fill="#1A1A1A">for livability on:</text>
+  <text x="698" y="312" font-family="Consolas, 'Courier New', monospace" font-size="12.5" font-weight="700" fill="#009E73">density, building mix,</text>
+  <text x="698" y="331" font-family="Consolas, 'Courier New', monospace" font-size="12.5" font-weight="700" fill="#009E73">short blocks, aged,</text>
+  <text x="698" y="350" font-family="Consolas, 'Courier New', monospace" font-size="12.5" font-weight="700" fill="#009E73">tall buildings</text>
+  <text x="698" y="382" font-family="Consolas, 'Courier New', monospace" font-size="12.5" fill="#1A1A1A">(generation + scoring</text>
+  <text x="698" y="401" font-family="Consolas, 'Courier New', monospace" font-size="12.5" fill="#1A1A1A">in one role)</text>
+  <text x="684" y="470" font-family="'Segoe UI', Arial, sans-serif" font-size="14" font-weight="700" fill="#009E73">Different blocks</text>
+  <text x="684" y="492" font-family="'Segoe UI', Arial, sans-serif" font-size="13" fill="#1A1A1A">tests Jacobs directions</text>
+
+  <!-- ===== card 4: Perception (red) - DIFFERENT FORM: pairwise image comparison ===== -->
+  <rect x="970" y="168" width="246" height="356" rx="10" fill="#FFFFFF" stroke="#D8DEE4" stroke-width="1.2"/>
+  <rect x="970" y="168" width="246" height="40" rx="10" fill="#C44E52"/>
+  <rect x="970" y="188" width="246" height="20" fill="#C44E52"/>
+  <text x="986" y="194" font-family="'Segoe UI', Arial, sans-serif" font-size="15" font-weight="700" fill="#FFFFFF">Perception prompt</text>
+  <text x="986" y="228" font-family="'Segoe UI', Arial, sans-serif" font-size="11.5" font-style="italic" fill="#C44E52">a different kind: compare two images</text>
+  <rect x="986" y="238" width="214" height="200" rx="6" fill="#F4F6F8"/>
+  <text x="1000" y="260" font-family="Consolas, 'Courier New', monospace" font-size="12.5" fill="#1A1A1A">Two street-view photos,</text>
+  <text x="1000" y="277" font-family="Consolas, 'Courier New', monospace" font-size="12.5" fill="#1A1A1A">LEFT and RIGHT.</text>
+  <text x="1000" y="299" font-family="Consolas, 'Courier New', monospace" font-size="12.5" fill="#1A1A1A">For dimension</text>
+  <text x="1000" y="316" font-family="Consolas, 'Courier New', monospace" font-size="12.5" font-weight="700" fill="#C44E52">{safety / lively /</text>
+  <text x="1000" y="333" font-family="Consolas, 'Courier New', monospace" font-size="12.5" font-weight="700" fill="#C44E52">beautiful / wealthy /</text>
+  <text x="1000" y="350" font-family="Consolas, 'Courier New', monospace" font-size="12.5" font-weight="700" fill="#C44E52">depressing / boring},</text>
+  <text x="1000" y="372" font-family="Consolas, 'Courier New', monospace" font-size="12.5" fill="#1A1A1A">which rates higher?</text>
+  <text x="1000" y="394" font-family="Consolas, 'Courier New', monospace" font-size="12.5" fill="#1A1A1A">Reply LEFT / RIGHT</text>
+  <text x="1000" y="411" font-family="Consolas, 'Courier New', monospace" font-size="12.5" fill="#1A1A1A">/ EQUAL.</text>
+  <text x="986" y="470" font-family="'Segoe UI', Arial, sans-serif" font-size="14" font-weight="700" fill="#C44E52">Pairwise on images</text>
+  <text x="986" y="492" font-family="'Segoe UI', Arial, sans-serif" font-size="13" fill="#1A1A1A">vs human votes (6 dims)</text>
+
+  <!-- sampling protocol bar (dark) -->
+  <rect x="64" y="544" width="1152" height="118" rx="10" fill="#132A3E"/>
+  <text x="92" y="578" font-family="'Segoe UI', Arial, sans-serif" font-size="16" font-weight="700" fill="#FFFFFF">Sampling protocol: symbolic uses joint (100 at once), perception uses independent (one pair)</text>
+  <rect x="92" y="594" width="540" height="50" rx="6" fill="#1C3A50"/>
+  <text x="108" y="614" font-family="'Segoe UI', Arial, sans-serif" font-size="13" font-weight="700" fill="#9FB4C4">Symbolic: joint sampling</text>
+  <text x="108" y="634" font-family="'Segoe UI', Arial, sans-serif" font-size="13" fill="#FFFFFF">100 points per run x 100 runs = a real distribution</text>
+  <rect x="648" y="594" width="540" height="50" rx="6" fill="#3A2A14"/>
+  <text x="664" y="614" font-family="'Segoe UI', Arial, sans-serif" font-size="13" font-weight="700" fill="#E69F00">Perception: independent sampling</text>
+  <text x="664" y="634" font-family="'Segoe UI', Arial, sans-serif" font-size="13" fill="#FFFFFF">one image pair at a time, to keep each scene's detail</text>
+</svg>

@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <marker id="bg" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#8A8A8A"/>
+    </marker>
+  </defs>
+
+  <!-- left: the 3-layer blueprint stack injected into the prompt -->
+  <text x="64" y="208" font-family="'Segoe UI', Arial, sans-serif" font-size="17" font-weight="700" fill="#1A1A1A">A "blueprint" is a constraint layer added to the prompt</text>
+  <text x="64" y="232" font-family="'Segoe UI', Arial, sans-serif" font-size="14" fill="#666666">expert urban-science knowledge, distilled from real data, prepended before the model generates</text>
+
+  <!-- layer 1 -->
+  <rect x="64" y="258" width="640" height="92" rx="10" fill="#EAF3F8" stroke="#BFD7E6" stroke-width="1.3"/>
+  <text x="86" y="288" font-family="'Segoe UI', Arial, sans-serif" font-size="16" font-weight="700" fill="#0072B2">1 . Qualitative frameworks</text>
+  <text x="86" y="314" font-family="'Segoe UI', Arial, sans-serif" font-size="14" fill="#1A1A1A">what makes a city work (scaling, centre&#8211;edge gradient,</text>
+  <text x="86" y="334" font-family="'Segoe UI', Arial, sans-serif" font-size="14" fill="#1A1A1A">Jacobs' vitality drivers, visual cues)</text>
+
+  <!-- layer 2 -->
+  <rect x="64" y="362" width="640" height="92" rx="10" fill="#FFF4E8" stroke="#F0CB9A" stroke-width="1.3"/>
+  <text x="86" y="392" font-family="'Segoe UI', Arial, sans-serif" font-size="16" font-weight="700" fill="#D55E00">2 . Quantitative anchors (ranges, not fixed values)</text>
+  <text x="86" y="418" font-family="'Segoe UI', Arial, sans-serif" font-size="14" fill="#1A1A1A">plausible envelopes: population 3,000&#8211;700,000; land</text>
+  <text x="86" y="438" font-family="'Segoe UI', Arial, sans-serif" font-size="14" fill="#1A1A1A">density 0.05&#8211;0.95 (fixed numbers cause mode collapse)</text>
+
+  <!-- layer 3 -->
+  <rect x="64" y="466" width="640" height="92" rx="10" fill="#E3F4EE" stroke="#B5E0CF" stroke-width="1.3"/>
+  <text x="86" y="496" font-family="'Segoe UI', Arial, sans-serif" font-size="16" font-weight="700" fill="#009E73">3 . Diversity constraints</text>
+  <text x="86" y="522" font-family="'Segoe UI', Arial, sans-serif" font-size="14" fill="#1A1A1A">avoid "perfectly round" numbers; force the heterogeneity</text>
+  <text x="86" y="542" font-family="'Segoe UI', Arial, sans-serif" font-size="14" fill="#1A1A1A">that real cities show (fights the over-smoothing bias)</text>
+
+  <!-- arrow down to prompt -->
+  <line x1="384" y1="558" x2="384" y2="598" stroke="#8A8A8A" stroke-width="2.4" marker-end="url(#bg)"/>
+  <rect x="184" y="600" width="400" height="44" rx="10" fill="#132A3E"/>
+  <text x="384" y="628" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="14" font-weight="700" fill="#FFFFFF">prepended to the generation prompt</text>
+
+  <!-- right: what it buys (ablation gains) -->
+  <rect x="736" y="258" width="480" height="386" rx="12" fill="#F4F6F8" stroke="#D8DEE4" stroke-width="1.3"/>
+  <text x="762" y="294" font-family="'Segoe UI', Arial, sans-serif" font-size="17" font-weight="700" fill="#1A1A1A">What the blueprint buys</text>
+
+  <rect x="762" y="312" width="428" height="74" rx="8" fill="#FFFFFF" stroke="#D8DEE4" stroke-width="1"/>
+  <text x="780" y="338" font-family="'Segoe UI', Arial, sans-serif" font-size="14" font-weight="700" fill="#D55E00">Geographic anchor ("China")</text>
+  <text x="780" y="362" font-family="'Segoe UI', Arial, sans-serif" font-size="14" fill="#1A1A1A">infrastructure overlap with real data</text>
+  <text x="780" y="380" font-family="'Segoe UI', Arial, sans-serif" font-size="14" font-weight="700" fill="#1A1A1A">0.28 &#8594; 0.98</text>
+
+  <rect x="762" y="396" width="428" height="74" rx="8" fill="#FFFFFF" stroke="#D8DEE4" stroke-width="1"/>
+  <text x="780" y="422" font-family="'Segoe UI', Arial, sans-serif" font-size="14" font-weight="700" fill="#009E73">Vitality fit</text>
+  <text x="780" y="446" font-family="'Segoe UI', Arial, sans-serif" font-size="14" fill="#1A1A1A">blueprint nearly triples goodness-of-fit</text>
+  <text x="780" y="464" font-family="'Segoe UI', Arial, sans-serif" font-size="14" font-weight="700" fill="#1A1A1A">~0.25 &#8594; 0.70</text>
+
+  <rect x="762" y="480" width="428" height="74" rx="8" fill="#FFFFFF" stroke="#D8DEE4" stroke-width="1"/>
+  <text x="780" y="506" font-family="'Segoe UI', Arial, sans-serif" font-size="14" font-weight="700" fill="#0072B2">Scaling exponent</text>
+  <text x="780" y="530" font-family="'Segoe UI', Arial, sans-serif" font-size="14" fill="#1A1A1A">95% of runs reproduce sub-linear growth</text>
+  <text x="780" y="548" font-family="'Segoe UI', Arial, sans-serif" font-size="14" font-weight="700" fill="#1A1A1A">corrects the systematic bias</text>
+
+  <rect x="762" y="564" width="428" height="64" rx="8" fill="#FBEAE8" stroke="#E8B5B2" stroke-width="1"/>
+  <text x="780" y="590" font-family="'Segoe UI', Arial, sans-serif" font-size="14" font-weight="700" fill="#C44E52">But the limit remains</text>
+  <text x="780" y="612" font-family="'Segoe UI', Arial, sans-serif" font-size="13.5" fill="#1A1A1A">injection fixes the surface; perception stays at &#954; &#8776; 0.2</text>
+</svg>

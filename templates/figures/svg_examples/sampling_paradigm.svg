@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <marker id="sg" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#8A8A8A"/>
+    </marker>
+  </defs>
+
+  <!-- ===== LEFT: Independent sampling ===== -->
+  <rect x="64" y="180" width="564" height="270" rx="12" fill="#F4F6F8" stroke="#D8DEE4" stroke-width="1.3"/>
+  <text x="88" y="220" font-family="'Segoe UI', Arial, sans-serif" font-size="19" font-weight="700" fill="#1A1A1A">Independent sampling</text>
+  <text x="88" y="246" font-family="'Segoe UI', Arial, sans-serif" font-size="14" fill="#666666">one city per request; the model sees no others</text>
+  <!-- three separate calls -->
+  <rect x="98" y="270" width="150" height="56" rx="8" fill="#FFFFFF" stroke="#bcc6cf" stroke-width="1.2"/>
+  <text x="173" y="296" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="13" fill="#1A1A1A">prompt &#8594; 1 city</text>
+  <text x="173" y="314" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="#888888">call 1</text>
+  <rect x="262" y="270" width="150" height="56" rx="8" fill="#FFFFFF" stroke="#bcc6cf" stroke-width="1.2"/>
+  <text x="337" y="296" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="13" fill="#1A1A1A">prompt &#8594; 1 city</text>
+  <text x="337" y="314" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="#888888">call 2</text>
+  <rect x="426" y="270" width="150" height="56" rx="8" fill="#FFFFFF" stroke="#bcc6cf" stroke-width="1.2"/>
+  <text x="501" y="296" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="13" fill="#1A1A1A">prompt &#8594; 1 city</text>
+  <text x="501" y="314" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="#888888">call 100</text>
+  <text x="88" y="368" font-family="'Segoe UI', Arial, sans-serif" font-size="14" fill="#1A1A1A">+ each sample is independent: no contextual drift</text>
+  <text x="88" y="392" font-family="'Segoe UI', Arial, sans-serif" font-size="14" fill="#1A1A1A">&#8722; no cross-city comparison; spatial logic stays off</text>
+  <text x="88" y="428" font-family="'Segoe UI', Arial, sans-serif" font-size="15" font-weight="700" fill="#C44E52">Best for PERCEPTION (keeps each scene's detail)</text>
+
+  <!-- ===== RIGHT: Joint sampling ===== -->
+  <rect x="652" y="180" width="564" height="270" rx="12" fill="#F4F6F8" stroke="#D8DEE4" stroke-width="1.3"/>
+  <text x="676" y="220" font-family="'Segoe UI', Arial, sans-serif" font-size="19" font-weight="700" fill="#1A1A1A">Joint sampling</text>
+  <text x="676" y="246" font-family="'Segoe UI', Arial, sans-serif" font-size="14" fill="#666666">all 100 cities in one prompt; the model sees them together</text>
+  <!-- one big call producing a list -->
+  <rect x="686" y="270" width="180" height="56" rx="8" fill="#FFFFFF" stroke="#bcc6cf" stroke-width="1.2"/>
+  <text x="776" y="296" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="13" fill="#1A1A1A">one prompt</text>
+  <text x="776" y="314" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="#888888">single call</text>
+  <line x1="866" y1="298" x2="940" y2="298" stroke="#8A8A8A" stroke-width="2.2" marker-end="url(#sg)"/>
+  <rect x="940" y="270" width="252" height="56" rx="8" fill="#EAF3F8" stroke="#BFD7E6" stroke-width="1.2"/>
+  <text x="1066" y="296" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="13" font-weight="700" fill="#0072B2">100 cities at once</text>
+  <text x="1066" y="314" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="#1A1A1A">compared via self-attention</text>
+  <text x="676" y="368" font-family="'Segoe UI', Arial, sans-serif" font-size="14" fill="#1A1A1A">+ the model compares cities &#8594; activates the law</text>
+  <text x="676" y="392" font-family="'Segoe UI', Arial, sans-serif" font-size="14" fill="#1A1A1A">+ awakens spatial continuity (centre &#8594; edge)</text>
+  <text x="676" y="428" font-family="'Segoe UI', Arial, sans-serif" font-size="15" font-weight="700" fill="#0072B2">Best for SYMBOLIC laws (Scaling / Decay / Vitality)</text>
+
+  <!-- ===== bottom: the asymmetric finding ===== -->
+  <rect x="64" y="470" width="1152" height="170" rx="12" fill="#132A3E"/>
+  <text x="92" y="508" font-family="'Segoe UI', Arial, sans-serif" font-size="18" font-weight="700" fill="#FFFFFF">The prompt is part of the experiment: symbolic and perceptual tasks need opposite recipes</text>
+  <!-- left stat -->
+  <rect x="92" y="528" width="540" height="92" rx="8" fill="#1C3A50"/>
+  <text x="112" y="556" font-family="'Segoe UI', Arial, sans-serif" font-size="14" font-weight="700" fill="#6FB8E0">Symbolic: joint sampling unlocks the law</text>
+  <text x="112" y="584" font-family="'Segoe UI', Arial, sans-serif" font-size="14" fill="#FFFFFF">goodness-of-fit 0.40 &#8594; over 0.90; Distance Decay</text>
+  <text x="112" y="604" font-family="'Segoe UI', Arial, sans-serif" font-size="14" fill="#FFFFFF">jumps from ~0 (scattered) to a clean curve.</text>
+  <!-- right stat -->
+  <rect x="648" y="528" width="540" height="92" rx="8" fill="#3A2A14"/>
+  <text x="668" y="556" font-family="'Segoe UI', Arial, sans-serif" font-size="14" font-weight="700" fill="#E69F00">Perception: joint sampling hurts</text>
+  <text x="668" y="584" font-family="'Segoe UI', Arial, sans-serif" font-size="14" fill="#FFFFFF">batching causes homogenization; agreement with</text>
+  <text x="668" y="604" font-family="'Segoe UI', Arial, sans-serif" font-size="14" fill="#FFFFFF">human raters drops. Independent (N=1-2) is best.</text>
+</svg>

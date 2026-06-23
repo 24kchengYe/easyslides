@@ -18,8 +18,9 @@ description: >
 3. **HTML/JSX authoring path**: Use HTML/JSX as an experimental upstream authoring layer, then normalize into EasySlides-compatible SVG or shape IR before the existing DrawingML backend
 4. **Academic scenario/template system**: Scenario-first academic planning with template-extensible output. The current active layout packs are `academic_general`, `academic_scqa`, `defense_leftnav`, `defense_topnav`, and `literature_minimal`; they are inventory, not scope limits.
 5. **71 visualization templates**: Charts, infographics, diagrams, strategic frameworks, and tables
-6. **11,634 icons**: Six SVG icon families for consistent academic and business visuals, with `lucide` preferred for new generic icons and emoji replacement
-7. **Template Asset Bank**: Convert many real PPTX templates into exact-reuse slide modules for manual-template-substitution quality
+6. **Figure generation** (`scripts/figures/` + `references/scientific-figures.md`): data figures via matplotlib (colourblind palette, journal/projector themes, traceable numbers); editable concept/flow diagrams via hand-authored SVG → native DrawingML shapes (`svg_inject`); AI illustration via `image_gen`
+7. **11,634 icons**: Six SVG icon families for consistent academic and business visuals, with `lucide` preferred for new generic icons and emoji replacement
+8. **Template Asset Bank**: Convert many real PPTX templates into exact-reuse slide modules for manual-template-substitution quality
 
 ## Backend-Centered Architecture
 
@@ -475,6 +476,49 @@ templates. Common academic charts:
 
 To use a chart: read the SVG template, replace placeholder data with actual data, and embed in the slide SVG.
 
+The chart SVGs above are **hand-templated** (placeholder values). For the two cases they don't
+cover — real data plots and editable concept diagrams — use the figure workflows below.
+Full house rules + decision tree: `references/scientific-figures.md`.
+
+### Data figures (matplotlib)
+
+When a slide or paper needs an actual statistical plot from **real numbers** (not a templated
+chart), generate it with matplotlib and embed the exported PNG/PDF:
+
+- Talk / projector deck → `scripts/figures/figstyle.py`: `FS.apply_rc()`, colourblind palette,
+  projector-readable fonts, `FS.savefig()` (300 dpi tight). See `scripts/figures/examples/example_bar.py`.
+- Journal submission → `scripts/figures/style_presets.apply_publication_style('nature'|'science'|…)`
+  + `scripts/figures/figure_export.save_for_journal(...)` (auto figure size + DPI per journal).
+
+Rules that matter: **numbers must be source-traceable** (load from a results file, never hand-type
+a value you can't point back to); title ABOVE the axes; **size the image by its true aspect ratio**
+so it isn't clipped when placed on a slide. `.mplstyle` themes live in `templates/figures/matplotlib_themes/`.
+
+### Conceptual figures: SVG-native (editable) vs AI-gen
+
+For **flow / mechanism / framework** diagrams (boxes + arrows + text, no data), the default is a
+**hand-authored SVG converted to native editable DrawingML shapes** — so the diagram stays editable
+in PowerPoint (not a flat image):
+
+```python
+from figures.svg_inject import inject_svg_shapes      # scripts/ on path
+inject_svg_shapes(slide, "templates/figures/svg_examples/probe_flow.svg")   # -> native <p:sp>
+```
+
+This reuses the same `svg_to_pptx` backend (Path A); it just grafts one hand-authored SVG onto an
+existing slide. Author at `viewBox="0 0 1280 720"` (1 px = full-slide EMU, no scaling); arrows via
+`<line marker-end>` (not `<path>`); fonts `'Segoe UI', Arial`. Nine ready-made templates are in
+`templates/figures/svg_examples/`. Key composition rules: **don't split a shared flow by object**
+(one flow, annotate differences; separate flow only for a different modality), keep tiers
+**symmetric**, fixed **semantic colours** per entity.
+
+Use **AI image generation** (`scripts/image_gen.py`) only for covers / rich illustration where
+editability doesn't matter. Do **not** draw box-and-arrow flowcharts in matplotlib.
+
+After injecting an SVG, verify it became native shapes: unpack the .pptx and confirm `<p:sp>` /
+`<p:grpSp>`, **not** `<p:pic>`. See `references/scientific-figures.md` for the full rules incl.
+python-pptx slide add/remove gotchas (`drop_rel`, save-reopen, blank-layout notes).
+
 ---
 
 ## Path B: Edit Existing PPTX
@@ -613,7 +657,8 @@ python scripts/office/pack.py unpacked/ output.pptx --original template.pptx
 │   ├── workflow-create.md            # Path A detailed workflow
 │   ├── workflow-edit.md              # Path B detailed workflow
 │   ├── design-guidelines.md          # Academic design standards
-│   └── svg-rules.md                  # SVG authoring constraints
+│   ├── svg-rules.md                  # SVG authoring constraints
+│   └── scientific-figures.md         # Figure house rules + decision tree (data / concept / AI)
 ├── templates/
 │   ├── academic/                     # Academic defense template
 │   │   ├── design_spec.md            # Design specification
@@ -623,7 +668,10 @@ python scripts/office/pack.py unpacked/ output.pptx --original template.pptx
 │   │   ├── 03_content.svg            # Content page
 │   │   └── 04_ending.svg             # Ending page
 │   ├── layouts/                      # 7 active academic layout template packs
-│   ├── charts/                       # 71 visualization SVG templates
+│   ├── charts/                       # 71 visualization SVG templates (hand-templated)
+│   ├── figures/                      # Figure assets (see scripts/figures/)
+│   │   ├── matplotlib_themes/        # .mplstyle themes (academic / nature / presentation)
+│   │   └── svg_examples/             # 9 proven concept-diagram SVGs to copy & adapt
 │   └── icons/                        # 11,634 icons across six libraries
 │       ├── chunk-filled/
 │       ├── phosphor-duotone/
@@ -647,6 +695,14 @@ python scripts/office/pack.py unpacked/ output.pptx --original template.pptx
     │   ├── helpers/                  # Run merging, redline simplification
     │   ├── validators/               # XSD schema validation
     │   └── schemas/                  # OOXML XSD schemas
+    ├── figures/                      # Figure generation (data / concept / AI) — see references/scientific-figures.md
+    │   ├── figstyle.py               # matplotlib talk/projector theme (colourblind, 300 dpi)
+    │   ├── style_presets.py          # journal styles (nature/science/cell/ieee)
+    │   ├── figure_export.py          # multi-format export + journal sizing/DPI
+    │   ├── color_palettes.py         # colourblind-safe palettes
+    │   ├── svg_inject.py             # hand-authored SVG → native DrawingML shapes on a slide
+    │   ├── gloss_helpers.py          # title blocks, dividers, gloss boxes, page numbers
+    │   └── examples/                 # runnable example_bar.py + README
     ├── add_slide.py                  # Add/duplicate slides
     ├── clean.py                      # Remove orphaned resources
     ├── finalize_svg.py               # SVG post-processing
