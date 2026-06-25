@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <!-- 2x2 intervention matrix: rows = text/image, cols = behavioral(change input) / internal(change activation) -->
+
+  <!-- column headers -->
+  <rect x="360" y="180" width="420" height="62" rx="10" fill="#EAF3F8" stroke="#BFD7E6" stroke-width="1.3"/>
+  <text x="570" y="208" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="18" font-weight="700" fill="#0072B2">Behavioral intervention</text>
+  <text x="570" y="230" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="13" fill="#1A1A1A">change the INPUT, read the output (black box; works on closed too)</text>
+
+  <rect x="800" y="180" width="416" height="62" rx="10" fill="#FBEAE8" stroke="#E8B5B2" stroke-width="1.3"/>
+  <text x="1008" y="208" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="18" font-weight="700" fill="#C44E52">Internal intervention</text>
+  <text x="1008" y="230" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="13" fill="#1A1A1A">change the ACTIVATION, read the output (open weights only)</text>
+
+  <!-- row headers -->
+  <rect x="64" y="256" width="282" height="200" rx="10" fill="#F4F6F8" stroke="#D8DEE4" stroke-width="1.3"/>
+  <text x="84" y="300" font-family="'Segoe UI', Arial, sans-serif" font-size="18" font-weight="700" fill="#1A1A1A">Symbolic (text)</text>
+  <text x="84" y="326" font-family="'Segoe UI', Arial, sans-serif" font-size="13.5" fill="#666666">Scaling / Decay / Vitality</text>
+  <text x="84" y="352" font-family="'Segoe UI', Arial, sans-serif" font-size="13" fill="#1A1A1A">a value (population / mix) is</text>
+  <text x="84" y="370" font-family="'Segoe UI', Arial, sans-serif" font-size="13" fill="#1A1A1A">a number we can read off a</text>
+  <text x="84" y="388" font-family="'Segoe UI', Arial, sans-serif" font-size="13" fill="#1A1A1A">clean probe direction</text>
+
+  <rect x="64" y="470" width="282" height="200" rx="10" fill="#F4F6F8" stroke="#D8DEE4" stroke-width="1.3"/>
+  <text x="84" y="514" font-family="'Segoe UI', Arial, sans-serif" font-size="18" font-weight="700" fill="#C44E52">Perceptual (image)</text>
+  <text x="84" y="540" font-family="'Segoe UI', Arial, sans-serif" font-size="13.5" fill="#666666">Urban Perception</text>
+  <text x="84" y="566" font-family="'Segoe UI', Arial, sans-serif" font-size="13" fill="#1A1A1A">6 subjective dimensions;</text>
+  <text x="84" y="584" font-family="'Segoe UI', Arial, sans-serif" font-size="13" fill="#1A1A1A">visual tokens are entangled,</text>
+  <text x="84" y="602" font-family="'Segoe UI', Arial, sans-serif" font-size="13" fill="#1A1A1A">no clean direction to push</text>
+
+  <!-- cell [text, behavioral] -->
+  <rect x="360" y="256" width="420" height="200" rx="10" fill="#FFFFFF" stroke="#BFD7E6" stroke-width="1.5"/>
+  <text x="380" y="286" font-family="'Segoe UI', Arial, sans-serif" font-size="14" font-weight="700" fill="#0072B2">&#10003; done</text>
+  <text x="380" y="312" font-family="'Segoe UI', Arial, sans-serif" font-size="13.5" fill="#1A1A1A">write a population into the prompt</text>
+  <text x="380" y="330" font-family="'Segoe UI', Arial, sans-serif" font-size="13.5" fill="#1A1A1A">("pop = X"), read the GDP it infers.</text>
+  <text x="380" y="356" font-family="'Segoe UI', Arial, sans-serif" font-size="13.5" fill="#1A1A1A">Sweep X, fit GDP vs pop.</text>
+  <text x="380" y="392" font-family="'Segoe UI', Arial, sans-serif" font-size="13" font-style="italic" fill="#666666">caveat: the number is fed in, so a</text>
+  <text x="380" y="410" font-family="'Segoe UI', Arial, sans-serif" font-size="13" font-style="italic" fill="#666666">strong response can be "text arithmetic"</text>
+  <text x="380" y="428" font-family="'Segoe UI', Arial, sans-serif" font-size="13" font-style="italic" fill="#666666">(read-back), not internal-law use</text>
+
+  <!-- cell [text, internal] -->
+  <rect x="800" y="256" width="416" height="200" rx="10" fill="#FFFFFF" stroke="#E8B5B2" stroke-width="1.5"/>
+  <text x="820" y="286" font-family="'Segoe UI', Arial, sans-serif" font-size="14" font-weight="700" fill="#C44E52">&#10003; done &#8212; the deep probe</text>
+  <text x="820" y="312" font-family="'Segoe UI', Arial, sans-serif" font-size="13.5" fill="#1A1A1A">probe the "population direction" w,</text>
+  <text x="820" y="330" font-family="'Segoe UI', Arial, sans-serif" font-size="13.5" fill="#1A1A1A">push it inside (h' = h + &#948;&#183;w), read GDP.</text>
+  <text x="820" y="356" font-family="'Segoe UI', Arial, sans-serif" font-size="13.5" fill="#1A1A1A">Population is NOT in the prompt.</text>
+  <text x="820" y="392" font-family="'Segoe UI', Arial, sans-serif" font-size="13" font-weight="700" fill="#1A1A1A">text +0.24 (mid-front),  VL ~1/7</text>
+  <text x="820" y="416" font-family="'Segoe UI', Arial, sans-serif" font-size="13" font-style="italic" fill="#666666">true mechanism test: memory layer</text>
+  <text x="820" y="434" font-family="'Segoe UI', Arial, sans-serif" font-size="13" font-style="italic" fill="#666666">&#8800; causal layer (6/6 models)</text>
+
+  <!-- cell [image, behavioral] -->
+  <rect x="360" y="470" width="420" height="200" rx="10" fill="#FFFFFF" stroke="#BFD7E6" stroke-width="1.5"/>
+  <text x="380" y="500" font-family="'Segoe UI', Arial, sans-serif" font-size="14" font-weight="700" fill="#0072B2">&#10003; done &#8212; the paper's edit test</text>
+  <text x="380" y="526" font-family="'Segoe UI', Arial, sans-serif" font-size="13.5" fill="#1A1A1A">edit the street image (add greenery /</text>
+  <text x="380" y="544" font-family="'Segoe UI', Arial, sans-serif" font-size="13.5" fill="#1A1A1A">traffic / buildings), re-score 6 dims.</text>
+  <text x="380" y="570" font-family="'Segoe UI', Arial, sans-serif" font-size="13.5" fill="#1A1A1A">Open VL vs closed GPT-4o.</text>
+  <text x="380" y="606" font-family="'Segoe UI', Arial, sans-serif" font-size="13" font-weight="700" fill="#1A1A1A">r = 0.92 &#8594; bridges open to closed</text>
+  <text x="380" y="630" font-family="'Segoe UI', Arial, sans-serif" font-size="13" font-style="italic" fill="#666666">no internal access needed</text>
+
+  <!-- cell [image, internal] - NOT DONE (dashed, greyed) -->
+  <rect x="800" y="470" width="416" height="200" rx="10" fill="#FAFAFA" stroke="#BBBBBB" stroke-width="1.5" stroke-dasharray="6 5"/>
+  <text x="820" y="500" font-family="'Segoe UI', Arial, sans-serif" font-size="14" font-weight="700" fill="#999999">&#10007; not done &#8212; on purpose</text>
+  <text x="820" y="528" font-family="'Segoe UI', Arial, sans-serif" font-size="13.5" fill="#777777">would mean: push a "safety" or "greenery"</text>
+  <text x="820" y="546" font-family="'Segoe UI', Arial, sans-serif" font-size="13.5" fill="#777777">direction inside the visual representation.</text>
+  <text x="820" y="582" font-family="'Segoe UI', Arial, sans-serif" font-size="13" fill="#777777">But the 6 perception axes are entangled in</text>
+  <text x="820" y="600" font-family="'Segoe UI', Arial, sans-serif" font-size="13" fill="#777777">the visual tokens &#8212; no clean direction to</text>
+  <text x="820" y="618" font-family="'Segoe UI', Arial, sans-serif" font-size="13" fill="#777777">inject reliably. Editing the image is the</text>
+  <text x="820" y="636" font-family="'Segoe UI', Arial, sans-serif" font-size="13" fill="#777777">sound choice instead.</text>
+
+  <!-- bottom takeaway -->
+  <rect x="64" y="684" width="1152" height="30" rx="6" fill="#132A3E"/>
+  <text x="640" y="704" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="13" font-weight="700" fill="#FFFFFF">Behavioral = change input (any model); Internal = change activation (open only). Internal is the stronger "does it really use it" test.</text>
+</svg>

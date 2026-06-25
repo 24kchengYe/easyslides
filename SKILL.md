@@ -523,6 +523,14 @@ python-pptx slide add/remove gotchas (`drop_rel`, save-reopen, blank-layout note
 
 ## Path B: Edit Existing PPTX
 
+> **Editing a deck the user already hand-tuned in PowerPoint?** That .pptx is the
+> master — do **not** re-export from SVG (it clobbers their manual layout). Use
+> in-place `python-pptx` run-level edits with a backup → edit-on-copy →
+> render-verify → apply discipline. Full playbook (run-level `set_run0`, progress-
+> bar geometry, in-place picture swap, CJK-filename/soffice gotchas, data-figure
+> phantom-crop pitfalls, number-caliber discipline) in
+> `references/pptx-surgical-editing-and-figures.md`.
+
 ### Step 1: Analyze Template
 
 ```bash

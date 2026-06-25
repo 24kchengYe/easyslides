@@ -29,9 +29,10 @@
   <text x="679" y="292" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="13" font-style="italic" fill="#666666">probe w&#183;h</text>
 
   <rect x="720" y="252" width="246" height="104" rx="12" fill="#F4F6F8" stroke="#D8DEE4" stroke-width="1.4"/>
-  <text x="843" y="282" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="16" font-weight="700" fill="#1A1A1A">Target ruler</text>
-  <text x="843" y="308" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="13" fill="#1A1A1A">an external value;</text>
-  <text x="843" y="328" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="13" fill="#1A1A1A">high R&#178; = encoded</text>
+  <text x="843" y="280" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="16" font-weight="700" fill="#1A1A1A">Target ruler</text>
+  <text x="843" y="304" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="13" fill="#1A1A1A">e.g. Scaling: real pop,</text>
+  <text x="843" y="322" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="13" fill="#1A1A1A">GDP, road &#8212; each on its own</text>
+  <text x="843" y="340" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="13" fill="#1A1A1A">high R&#178; = that one is encoded</text>
 
   <!-- the only difference: input/target per theory + recall vs read-back -->
   <rect x="996" y="252" width="220" height="104" rx="12" fill="#FFFFFF" stroke="#D8DEE4" stroke-width="1.2"/>
@@ -42,7 +43,7 @@
 
   <!-- caption strip under the shared flow -->
   <rect x="64" y="372" width="902" height="40" rx="8" fill="#EAF3F8"/>
-  <text x="84" y="397" font-family="'Segoe UI', Arial, sans-serif" font-size="13.5" fill="#1A1A1A"><tspan font-weight="700" fill="#0072B2">Same flow, different ruler: </tspan>only the target changes &#8212; a real-world fact to recall, or an attribute we already supplied.</text>
+  <text x="84" y="397" font-family="'Segoe UI', Arial, sans-serif" font-size="13.5" fill="#1A1A1A"><tspan font-weight="700" fill="#0072B2">Probe one quantity at a time: </tspan>each target is a single number. The power-law <tspan font-weight="700" fill="#C44E52">relation</tspan> (GDP vs pop) is tested next, by intervention.</text>
 
   <!-- divider line -->
   <line x1="64" y1="448" x2="1216" y2="448" stroke="#E0E4E8" stroke-width="1.4"/>

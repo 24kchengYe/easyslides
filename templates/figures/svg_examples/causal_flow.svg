@@ -8,60 +8,94 @@
     </marker>
   </defs>
 
-  <!-- step 1: probe gives a direction -->
-  <rect x="64" y="250" width="236" height="150" rx="13" fill="#EAF3F8" stroke="#BFD7E6" stroke-width="1.5"/>
-  <text x="182" y="288" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="17" font-weight="700" fill="#0072B2">1 . A direction</text>
-  <text x="182" y="320" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="15" fill="#1A1A1A">probing gives the</text>
-  <text x="182" y="342" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="15" fill="#1A1A1A">"population" direction</text>
-  <text x="182" y="376" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="17" font-weight="700" fill="#0072B2">w_pop</text>
+  <!-- ============ TOP: symbolic theories = INTERNAL intervention (edit the activation) ============ -->
+  <text x="64" y="196" font-family="'Segoe UI', Arial, sans-serif" font-size="18" font-weight="700" fill="#1A1A1A">Symbolic theories: edit the internal state</text>
+  <text x="64" y="220" font-family="'Segoe UI', Arial, sans-serif" font-size="14" fill="#666666">Scaling / Decay / Vitality &#8212; push a direction inside the model, re-run, read another variable</text>
 
-  <line x1="300" y1="325" x2="384" y2="325" stroke="#8A8A8A" stroke-width="2.5" marker-end="url(#cg)"/>
+  <!-- step 1 -->
+  <rect x="64" y="238" width="220" height="118" rx="12" fill="#EAF3F8" stroke="#BFD7E6" stroke-width="1.4"/>
+  <text x="174" y="270" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="15" font-weight="700" fill="#0072B2">1 . A direction</text>
+  <text x="174" y="296" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="13.5" fill="#1A1A1A">probing gives the</text>
+  <text x="174" y="314" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="13.5" fill="#1A1A1A">"population" direction</text>
+  <text x="174" y="340" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="15" font-weight="700" fill="#0072B2">w_pop</text>
 
-  <!-- step 2: edit the hidden state -->
-  <rect x="384" y="250" width="262" height="150" rx="13" fill="#FBEAE8" stroke="#E8B5B2" stroke-width="1.5"/>
-  <text x="515" y="288" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="17" font-weight="700" fill="#C44E52">2 . Nudge it</text>
-  <text x="515" y="318" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="15" fill="#1A1A1A">add a small push to the</text>
-  <text x="515" y="340" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="15" fill="#1A1A1A">internal state at a layer</text>
-  <text x="515" y="376" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="17" font-weight="700" fill="#C44E52">h' = h + &#948; &#183; w_pop</text>
+  <line x1="284" y1="297" x2="356" y2="297" stroke="#8A8A8A" stroke-width="2.4" marker-end="url(#cg)"/>
 
-  <line x1="646" y1="325" x2="730" y2="325" stroke="#8A8A8A" stroke-width="2.5" marker-end="url(#cg)"/>
+  <!-- step 2 -->
+  <rect x="356" y="238" width="240" height="118" rx="12" fill="#FBEAE8" stroke="#E8B5B2" stroke-width="1.4"/>
+  <text x="476" y="270" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="15" font-weight="700" fill="#C44E52">2 . Nudge it</text>
+  <text x="476" y="296" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="13.5" fill="#1A1A1A">push the internal state</text>
+  <text x="476" y="314" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="13.5" fill="#1A1A1A">at a layer</text>
+  <text x="476" y="340" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="15" font-weight="700" fill="#C44E52">h' = h + &#948; &#183; w_pop</text>
 
-  <!-- step 3: re-run and read output change -->
-  <rect x="730" y="250" width="262" height="150" rx="13" fill="#eef1f4" stroke="#bcc6cf" stroke-width="1.5"/>
-  <text x="861" y="288" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="17" font-weight="700" fill="#1A1A1A">3 . Re-run</text>
-  <text x="861" y="318" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="15" fill="#1A1A1A">did the model's output</text>
-  <text x="861" y="340" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="15" fill="#1A1A1A">actually move?</text>
-  <text x="861" y="376" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="14" font-style="italic" fill="#666666">if yes, the layer is causal</text>
+  <line x1="596" y1="297" x2="668" y2="297" stroke="#8A8A8A" stroke-width="2.4" marker-end="url(#cg)"/>
 
-  <line x1="992" y1="325" x2="1076" y2="325" stroke="#C44E52" stroke-width="2.5" marker-end="url(#cr)"/>
+  <!-- step 3 -->
+  <rect x="668" y="238" width="240" height="118" rx="12" fill="#eef1f4" stroke="#bcc6cf" stroke-width="1.4"/>
+  <text x="788" y="266" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="15" font-weight="700" fill="#1A1A1A">3 . Read GDP</text>
+  <text x="788" y="290" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="13" fill="#1A1A1A">push pop, read GDP:</text>
+  <text x="788" y="310" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="14" font-weight="700" fill="#C44E52">does it move by Y &#8733; N^&#946;?</text>
+  <text x="788" y="334" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="12.5" font-style="italic" fill="#666666">if yes, it USES the relation</text>
 
-  <!-- verdict -->
-  <rect x="1076" y="288" width="148" height="74" rx="13" fill="#C44E52"/>
-  <text x="1150" y="318" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="14" font-weight="700" fill="#FFFFFF">a true</text>
-  <text x="1150" y="338" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="14" font-weight="700" fill="#FFFFFF">cause-test</text>
+  <!-- sweep mini-strip (compact, to the right) -->
+  <line x1="908" y1="297" x2="956" y2="297" stroke="#8A8A8A" stroke-width="2.4" marker-end="url(#cg)"/>
+  <rect x="956" y="238" width="260" height="118" rx="12" fill="#F4F6F8" stroke="#E0E4E8" stroke-width="1.2"/>
+  <text x="1086" y="262" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="13" font-weight="700" fill="#1A1A1A">sweep every layer</text>
+  <text x="974" y="346" font-family="'Segoe UI', Arial, sans-serif" font-size="11" fill="#888888">input</text>
+  <text x="1170" y="346" font-family="'Segoe UI', Arial, sans-serif" font-size="11" fill="#888888">output</text>
+  <rect x="980" y="312" width="14" height="14" rx="2" fill="#cfd6dd"/>
+  <rect x="1000" y="306" width="14" height="20" rx="2" fill="#cfd6dd"/>
+  <rect x="1020" y="296" width="14" height="30" rx="2" fill="#C44E52"/>
+  <rect x="1040" y="302" width="14" height="24" rx="2" fill="#e0a6a4"/>
+  <rect x="1060" y="314" width="14" height="12" rx="2" fill="#cfd6dd"/>
+  <rect x="1080" y="316" width="14" height="10" rx="2" fill="#cfd6dd"/>
+  <rect x="1100" y="315" width="14" height="11" rx="2" fill="#cfd6dd"/>
+  <rect x="1120" y="316" width="14" height="10" rx="2" fill="#cfd6dd"/>
+  <rect x="1140" y="315" width="14" height="11" rx="2" fill="#cfd6dd"/>
+  <rect x="1160" y="314" width="14" height="12" rx="2" fill="#cfd6dd"/>
+  <rect x="1180" y="313" width="14" height="13" rx="2" fill="#cfd6dd"/>
+  <text x="1027" y="292" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="10.5" font-weight="700" fill="#C44E52">peak: mid-front</text>
 
-  <!-- layer-sweep strip -->
-  <text x="64" y="470" font-family="'Segoe UI', Arial, sans-serif" font-size="16" font-weight="700" fill="#1A1A1A">Sweep every layer to find where the nudge bites</text>
-  <text x="64" y="494" font-family="'Segoe UI', Arial, sans-serif" font-size="14" fill="#666666">probing alone only shows a fact is stored; only this edit-and-rerun test shows the fact is used</text>
+  <!-- divider -->
+  <line x1="64" y1="392" x2="1216" y2="392" stroke="#E0E4E8" stroke-width="1.4"/>
 
-  <!-- mini layer bars -->
-  <rect x="64" y="516" width="1018" height="86" rx="10" fill="#F4F6F8" stroke="#E0E4E8" stroke-width="1.2"/>
-  <text x="84" y="544" font-family="'Segoe UI', Arial, sans-serif" font-size="13" fill="#666666">input</text>
-  <text x="1010" y="544" font-family="'Segoe UI', Arial, sans-serif" font-size="13" fill="#666666">output</text>
-  <!-- bars: low, low, peak (red) mid-front, low ... -->
-  <rect x="150" y="566" width="40" height="14" rx="3" fill="#cfd6dd"/>
-  <rect x="210" y="560" width="40" height="20" rx="3" fill="#cfd6dd"/>
-  <rect x="270" y="548" width="40" height="32" rx="3" fill="#C44E52"/>
-  <rect x="330" y="554" width="40" height="26" rx="3" fill="#e0a6a4"/>
-  <rect x="390" y="566" width="40" height="14" rx="3" fill="#cfd6dd"/>
-  <rect x="450" y="568" width="40" height="12" rx="3" fill="#cfd6dd"/>
-  <rect x="510" y="569" width="40" height="11" rx="3" fill="#cfd6dd"/>
-  <rect x="570" y="570" width="40" height="10" rx="3" fill="#cfd6dd"/>
-  <rect x="630" y="569" width="40" height="11" rx="3" fill="#cfd6dd"/>
-  <rect x="690" y="568" width="40" height="12" rx="3" fill="#cfd6dd"/>
-  <rect x="750" y="567" width="40" height="13" rx="3" fill="#cfd6dd"/>
-  <rect x="810" y="566" width="40" height="14" rx="3" fill="#cfd6dd"/>
-  <rect x="870" y="565" width="40" height="15" rx="3" fill="#cfd6dd"/>
-  <rect x="930" y="564" width="40" height="16" rx="3" fill="#cfd6dd"/>
-  <text x="290" y="540" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="13" font-weight="700" fill="#C44E52">causal peak (mid-front)</text>
+  <!-- ============ BOTTOM: Perception = BEHAVIOURAL intervention (edit the image) ============ -->
+  <text x="64" y="430" font-family="'Segoe UI', Arial, sans-serif" font-size="18" font-weight="700" fill="#C44E52">Perception: edit the input image instead</text>
+  <text x="64" y="454" font-family="'Segoe UI', Arial, sans-serif" font-size="14" fill="#666666">vision has no clean internal "direction" to push, so we change the input, not the activation &#8212; and this also works on closed models.</text>
+
+  <!-- step 1: edit image -->
+  <rect x="64" y="472" width="236" height="118" rx="12" fill="#FBEAE8" stroke="#E8B5B2" stroke-width="1.4"/>
+  <text x="182" y="504" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="15" font-weight="700" fill="#C44E52">1 . Edit the scene</text>
+  <text x="182" y="530" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="13.5" fill="#1A1A1A">add greenery / traffic /</text>
+  <text x="182" y="548" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="13.5" fill="#1A1A1A">buildings to a street view</text>
+  <text x="182" y="572" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="12.5" font-style="italic" fill="#666666">this is the "nudge"</text>
+
+  <line x1="300" y1="531" x2="372" y2="531" stroke="#C44E52" stroke-width="2.4" marker-end="url(#cr)"/>
+
+  <!-- step 2: re-score on both -->
+  <rect x="372" y="472" width="262" height="118" rx="12" fill="#eef1f4" stroke="#bcc6cf" stroke-width="1.4"/>
+  <text x="503" y="504" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="15" font-weight="700" fill="#1A1A1A">2 . Re-score</text>
+  <text x="503" y="530" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="13.5" fill="#1A1A1A">do the 6 perception</text>
+  <text x="503" y="548" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="13.5" fill="#1A1A1A">scores move? (&#916;Score)</text>
+  <text x="503" y="572" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="12.5" font-style="italic" fill="#666666">open VL and closed GPT-4o</text>
+
+  <line x1="634" y1="531" x2="706" y2="531" stroke="#C44E52" stroke-width="2.4" marker-end="url(#cr)"/>
+
+  <!-- step 3: compare -->
+  <rect x="706" y="472" width="262" height="118" rx="12" fill="#FBEAE8" stroke="#E8B5B2" stroke-width="1.4"/>
+  <text x="837" y="504" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="15" font-weight="700" fill="#C44E52">3 . Compare</text>
+  <text x="837" y="530" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="13.5" fill="#1A1A1A">do the two models react</text>
+  <text x="837" y="548" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="13.5" fill="#1A1A1A">the same way?</text>
+  <text x="837" y="572" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="12.5" font-style="italic" fill="#666666">if yes, the bridge holds</text>
+
+  <line x1="968" y1="531" x2="1016" y2="531" stroke="#C44E52" stroke-width="2.5" marker-end="url(#cr)"/>
+
+  <!-- verdict pill -->
+  <rect x="1016" y="496" width="200" height="70" rx="13" fill="#C44E52"/>
+  <text x="1116" y="524" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="15" font-weight="700" fill="#FFFFFF">r = 0.92</text>
+  <text x="1116" y="546" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="12" fill="#FFFFFF">open &#8776; closed (sign 12/18)</text>
+
+  <!-- bottom note: two kinds of intervention -->
+  <rect x="64" y="612" width="1152" height="40" rx="8" fill="#F4F6F8"/>
+  <text x="84" y="637" font-family="'Segoe UI', Arial, sans-serif" font-size="13.5" fill="#1A1A1A"><tspan font-weight="700" fill="#1A1A1A">Two ways to test "does it USE the knowledge": </tspan>change the <tspan font-weight="700" fill="#0072B2">internal state</tspan> (symbolic) or change the <tspan font-weight="700" fill="#C44E52">input image</tspan> (perception, also works on closed models).</text>
 </svg>
