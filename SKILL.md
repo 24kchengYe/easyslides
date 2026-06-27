@@ -636,6 +636,29 @@ python scripts/office/pack.py unpacked/ output.pptx --original template.pptx
    source content layer and use punctuation-aware Chinese wrapping before
    export.
 
+#### Injecting SVG into an EXISTING pptx (battle-tested, in-place python-pptx)
+
+When you reuse `inject_svg_shapes(slide, svg_path)` to drop hand-written SVG onto an already-built deck (not the full Path-A export), these bite hard:
+
+7. **Escape `&`, `<`, `>` in every `<text>`**: bare `&`/`<`/`>` make the SVG
+   not-well-formed → both the easyslides converter and PyMuPDF fail to parse.
+   Centralize: `txt = re.sub(r'&(?!amp;|lt;|gt;|#)', '&amp;', txt).replace('<','&lt;').replace('>','&gt;')`
+   inside your text helper. Symptom: `ParseError: not well-formed (invalid token)`.
+8. **No multi-colour `<tspan>` inside one `<text>`**: the converter drops/garbles it.
+   Use a separate `<text>` per colour segment and lay them out by estimated
+   char-width (≈ `len*fontsize*0.58` for bold, `*0.52` regular).
+9. **`<g transform="translate(...)">` wrapping the whole figure** → the converter
+   imports it as ONE grouped shape (renders fine, but you can't edit inner
+   elements in PowerPoint/WPS). If editability matters, drop the `<g>` and add the
+   offset to each element's coordinates instead.
+10. **Non-standard markers are silently skipped**: only `triangle`/`diamond`/`oval`
+    arrow markers survive conversion. Define your own `<marker>` with a `<path>`
+    triangle rather than relying on exotic marker shapes.
+11. **LaTeX-style math without LaTeX**: SVG alone can fake a formula well — serif
+    family (`'Cambria Math','Times New Roman'`), a fraction = stacked text + a
+    `<line>`, big `[ ]` brackets in a light weight, sub/superscripts = smaller
+    font with a `dy` offset. Good enough for a slide; no MathJax/LaTeX needed.
+
 ### PPTX Editing
 
 1. **Unicode bullets**: Never use `•` — causes double bullets
@@ -646,6 +669,20 @@ python scripts/office/pack.py unpacked/ output.pptx --original template.pptx
 6. **Unvalidated speaker notes**: Notes slides require a notes master part,
    relationships, and content types. Always run the unpack/pack validation and
    a PPT-to-Markdown extraction check after exporting a deck with notes.
+7. **Blank-layout slide has no notes placeholder**: `slide.notes_slide.notes_text_frame`
+   returns `None`, so `... .text = "..."` raises `AttributeError`. Inject a body
+   placeholder first (a `<p:sp>` with `<p:ph type="body" idx="1"/>` and an empty
+   `<p:txBody>`), THEN set the text. Wrap this in a `set_notes(slide, text)` helper.
+8. **Helper writing the WRONG file**: an injector that hardcodes `PATH = "deck_v7.pptx"`
+   will silently edit v7 even when you meant v8. Before reusing ANY save helper,
+   confirm which path it writes; pass the target path in or edit inline.
+9. **WPS/PowerPoint lock**: while the user has the deck open (`wpp.exe`/`POWERPNT`),
+   `prs.save()` throws `PermissionError [Errno 13]`. You can still READ/`cp` it.
+   Save to a temp file, verify, and copy over once the lock clears.
+10. **Local render without poppler**: if `pdftoppm` isn't installed, render via
+    LibreOffice headless → PDF, then PyMuPDF: `fitz.open(pdf)[i].get_pixmap(matrix=fitz.Matrix(1.5,1.5)).save(png)`.
+    fitz also opens a standalone `.svg` directly for a quick preview. The MuPDF
+    "No common ancestor in structure tree" warning is harmless.
 
 ### Design
 
